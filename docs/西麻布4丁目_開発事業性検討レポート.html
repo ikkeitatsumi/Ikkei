@@ -1,0 +1,267 @@
+<title>西麻布四丁目 事業性検討</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Noto+Sans+JP:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#f4f6f8; --paper:#ffffff; --ink:#1c2430; --ink-2:#4b5866; --ink-3:#7d8894;
+  --rule:#d5dbe1; --rule-soft:#e6eaee;
+  --accent:#0f6b5f; --accent-soft:#dcefea;
+  --neg:#b0402c; --neg-soft:#f6e3de;
+  --warn:#a0741c; --warn-soft:#f5ecd6;
+  --mark:#123a5c;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1418; --paper:#171d23; --ink:#e6eaee; --ink-2:#aeb8c2; --ink-3:#7d8894;
+    --rule:#2c353f; --rule-soft:#232b33;
+    --accent:#4fb8a4; --accent-soft:#143530;
+    --neg:#e0765f; --neg-soft:#3a201a;
+    --warn:#d8a94a; --warn-soft:#3a2f16;
+    --mark:#8fbde6;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1418; --paper:#171d23; --ink:#e6eaee; --ink-2:#aeb8c2; --ink-3:#7d8894;
+  --rule:#2c353f; --rule-soft:#232b33;
+  --accent:#4fb8a4; --accent-soft:#143530;
+  --neg:#e0765f; --neg-soft:#3a201a;
+  --warn:#d8a94a; --warn-soft:#3a2f16;
+  --mark:#8fbde6;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;font-size:15px;line-height:1.75;font-feature-settings:"palt"}
+.page{max-width:920px;margin:0 auto;padding:40px 24px 80px}
+h1,h2,h3{font-family:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;text-wrap:balance;margin:0}
+h1{font-size:34px;font-weight:800;line-height:1.3;letter-spacing:.01em}
+h2{font-size:22px;font-weight:800;margin-top:56px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+h3{font-size:17px;font-weight:600;margin-top:28px;color:var(--ink)}
+p{margin:12px 0;max-width:68ch}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-family:"IBM Plex Sans",sans-serif;font-weight:600}
+.meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:14px;color:var(--ink-2);font-size:13px}
+.meta b{color:var(--ink);font-weight:500}
+.num{font-family:"IBM Plex Sans","Noto Sans JP",sans-serif;font-variant-numeric:tabular-nums}
+.verdict{margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border:1px solid var(--rule);background:var(--paper)}
+.verdict>div{padding:18px 20px;border-right:1px solid var(--rule-soft)}
+.verdict>div:last-child{border-right:0}
+.verdict .k{font-size:12px;color:var(--ink-3);letter-spacing:.06em}
+.verdict .v{font-family:"Shippori Mincho B1",serif;font-size:26px;font-weight:800;line-height:1.2;margin-top:6px}
+.verdict .s{font-size:12.5px;color:var(--ink-2);margin-top:6px;line-height:1.5}
+.ok{color:var(--accent)} .ng{color:var(--neg)} .wn{color:var(--warn)}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;padding:2px 8px;border-radius:3px;vertical-align:middle}
+.tag.ok{background:var(--accent-soft);color:var(--accent)} .tag.ng{background:var(--neg-soft);color:var(--neg)} .tag.wn{background:var(--warn-soft);color:var(--warn)}
+.tbl{overflow-x:auto;margin:16px 0;border:1px solid var(--rule);background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--rule-soft);text-align:left;vertical-align:top}
+th{font-weight:700;color:var(--ink-2);font-size:12.5px;background:var(--bg);white-space:nowrap}
+td.n,th.n{text-align:right;font-family:"IBM Plex Sans","Noto Sans JP",sans-serif;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-top:2px solid var(--ink);background:var(--bg)}
+tr.key td{font-weight:700}
+.note{font-size:12.5px;color:var(--ink-2);margin:8px 0 0;max-width:none}
+.heat td.n{font-weight:500}
+.h-ok{background:var(--accent-soft);color:var(--accent)} .h-ng{background:var(--neg-soft);color:var(--neg)} .h-wn{background:var(--warn-soft);color:var(--warn)}
+.chart{background:var(--paper);border:1px solid var(--rule);padding:16px 12px 8px;margin:16px 0}
+.chart svg{width:100%;height:auto;display:block;font-family:"IBM Plex Sans","Noto Sans JP",sans-serif}
+.chart text{fill:var(--ink);font-size:12px}
+.chart .lab{fill:var(--ink-2)} .chart .bar{fill:var(--accent)} .chart .bar.ng{fill:var(--neg)} .chart .bar.wn{fill:var(--warn)}
+.chart .ask{stroke:var(--mark);stroke-width:1.5;stroke-dasharray:4 3} .chart .askt{fill:var(--mark);font-weight:600}
+.chart .grid{stroke:var(--rule-soft)}
+ol,ul{padding-left:1.4em;max-width:72ch} li{margin:6px 0}
+.check li{list-style:none;position:relative;padding-left:1.4em}
+.check li::before{content:"";position:absolute;left:0;top:.55em;width:11px;height:11px;border:1.5px solid var(--ink-3);border-radius:2px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.src{font-size:12.5px;color:var(--ink-2)} .src a{color:var(--mark);text-decoration:none;border-bottom:1px solid var(--rule)} .src li{margin:4px 0}
+.callout{border-left:3px solid var(--accent);background:var(--paper);padding:12px 16px;margin:16px 0;max-width:72ch}
+.callout p{margin:4px 0}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="page">
+  <div class="eyebrow">開発事業性検討 ／ 港区西麻布4-3-7</div>
+  <h1>西麻布四丁目 土地（FACE西麻布）<br>何が建ち、いくらなら買えるか</h1>
+  <div class="meta">
+    <span>土地 <b class="num">330.99㎡（100.12坪）</b></span>
+    <span>募集価格 <b class="num">25億円（税込）＝ 2,497万円/坪</b></span>
+    <span>広尾駅 徒歩7分</span>
+    <span>作成 <b class="num">2026-09-08</b></span>
+  </div>
+
+  <div class="verdict">
+    <div><div class="k">ホテル</div><div class="v ng">不成立</div><div class="s">アップスケール29室でNOI利回り2.3%。土地に払える上限は8〜14億円。</div></div>
+    <div><div class="k">分譲マンション</div><div class="v wn">条件付き</div><div class="s">専有257坪・約9戸。25億なら販売坪1,800万円が必要。坪1,500万なら土地19億が上限。</div></div>
+    <div><div class="k">賃貸・店舗建替</div><div class="v ng">不成立</div><div class="s">NOI利回り0.8%／1.9%。壊すより貸し続ける方が価値が高い建物。</div></div>
+    <div><div class="k">推奨アクション</div><div class="v ok num">指値 19〜20億</div><div class="s">分譲用地として残余法を根拠に交渉。22億超は見送り。</div></div>
+  </div>
+
+  <h2>1. 物件の整理と気づき</h2>
+  <div class="tbl"><table>
+    <tr><th>項目</th><th>内容</th><th>気づき・確認事項</th></tr>
+    <tr><td>用途地域</td><td>第一種住居地域（60/300）＋近隣商業地域（80/400）</td><td>敷地が<b>用途地域境界を跨ぐ</b>。紹介メールは近商300%と簡略化。近商割合で容積が変わる。</td></tr>
+    <tr><td>接道</td><td>西側 公道7.1m／南側 私道4m</td><td>私道は持分・通行掘削承諾の確認必須。容積の道路幅員制限は7.1mで計算。</td></tr>
+    <tr><td>既存建物</td><td>RC造 B1/3F・878.57㎡・2002年築</td><td>築24年。解体はRC地下ありで割高。アスベスト調査要。</td></tr>
+    <tr><td>現行賃料</td><td class="num">年9,570万円（2・3F 38,600円/坪、B1B2 32,900円/坪）</td><td>西麻布らしい飲食・ナイト系の高賃料。表面3.83%。</td></tr>
+    <tr><td>退去</td><td>メール「2027年1月末退去予定」</td><td>レントロールの契約終了は<b>B1B2 2027/2/28、2・3F 2027/7/4</b>。合意解約書の有無を確認。なければ立退料リスク。</td></tr>
+    <tr><td>保証金</td><td class="num">B1B2 2,070万円（償却151.8万円）</td><td>買主が返還債務を承継。代金から控除する交渉余地。</td></tr>
+    <tr><td>面積</td><td>登記簿のみ、実測なし</td><td>確定測量が必要。実測減の可能性。</td></tr>
+  </table></div>
+
+  <h2>2. 法規制と建築可能ボリューム</h2>
+  <div class="two">
+    <div>
+      <h3>容積率（前面道路7.1m）</h3>
+      <div class="tbl"><table>
+        <tr><th>ケース</th><th class="n">近商割合</th><th class="n">許容容積率</th><th class="n">容積対象床</th></tr>
+        <tr><td>保守</td><td class="n">0%</td><td class="n">284%</td><td class="n">940㎡</td></tr>
+        <tr class="key"><td>基準</td><td class="n">15%</td><td class="n">301%</td><td class="n">998㎡</td></tr>
+        <tr><td>上振れ</td><td class="n">40%</td><td class="n">330%</td><td class="n">1,092㎡</td></tr>
+      </table></div>
+      <p class="note">一住部分は 7.1m×0.4＝284% が指定300%を下回る。近商部分は 7.1m×0.6＝426% → 400%。</p>
+    </div>
+    <div>
+      <h3>高さ・用途</h3>
+      <ul>
+        <li>港区は高度地区に絶対高さ制限あり。一住部分は日影規制（測定面4m）。周辺は5〜8階建 → <b>地上6〜7階＋地下1階</b>が現実的。</li>
+        <li>ホテルは一住内でも3,000㎡以下なら可（本件約1,050㎡）。</li>
+        <li>延床約1,050〜1,250㎡は駐車場附置義務の閾値を下回る見込み。港区中高層紛争予防条例の近隣説明は必要。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tbl"><table>
+    <tr><th>用途</th><th>延床（容積不算入含む）</th><th>有効面積</th></tr>
+    <tr><td>分譲・賃貸マンション</td><td class="num">約1,247㎡（377坪）※共用廊下等不算入で1.25倍</td><td class="num">専有848㎡（257坪）・約9戸（1戸約95㎡）</td></tr>
+    <tr><td>ホテル</td><td class="num">約1,057㎡（320坪）※廊下は容積算入</td><td class="num">宿泊特化37室／アップスケール29室／ラグジュアリー21室</td></tr>
+    <tr><td>店舗ビル</td><td class="num">約1,047㎡（317坪）</td><td class="num">貸室257坪</td></tr>
+  </table></div>
+
+  <h2>3. 用途別収支（土地25億円・基準ケース）</h2>
+  <p class="note">共通前提：仲介3%＋税、登録免許税・不動産取得税（評価約6.9億円）、固都税年1,300万円、解体約6,000万円、設計監理5%、予備費3%、金利2.0%＋融資手数料0.5%、事業期間27か月。</p>
+
+  <h3>3.1 分譲マンション <span class="tag wn">坪1,500万で損益ゼロ</span></h3>
+  <div class="tbl"><table>
+    <tr><th>項目</th><th class="n">金額</th></tr>
+    <tr><td>土地代</td><td class="n">25.00億円</td></tr>
+    <tr><td>取得諸経費（仲介・税・その他）</td><td class="n">1.18億円</td></tr>
+    <tr><td>固都税（事業期間）・解体・退去前賃料収入</td><td class="n">0.65億円</td></tr>
+    <tr><td>本体工事費（377坪 × 200万円）</td><td class="n">7.54億円</td></tr>
+    <tr><td>設計監理・外構等・予備費</td><td class="n">0.91億円</td></tr>
+    <tr><td>販売経費（売上5%）</td><td class="n">1.92億円</td></tr>
+    <tr><td>金利・融資手数料</td><td class="n">1.70億円</td></tr>
+    <tr class="total"><td>総事業費</td><td class="n">38.90億円</td></tr>
+    <tr><td>売上高（専有257坪 × 1,500万円）</td><td class="n">38.48億円</td></tr>
+    <tr class="key"><td>事業利益（売上比）</td><td class="n ng">▲0.42億円（▲1.1%）</td></tr>
+    <tr class="key"><td>損益分岐 販売坪単価</td><td class="n">1,516万円/坪</td></tr>
+  </table></div>
+  <p>25億円で利益率15%を確保するには販売坪単価<b>1,800万円</b>（約95㎡で約5.2億円）が必要。港区の新築平均は2025年696万円、2026年1〜4月758万円。西麻布の小規模高級物件で1,500万円は狙える水準だが、1,800万円は最上位ブランドの領域になる。</p>
+
+  <h3>3.2 ホテル <span class="tag ng">全グレードで不成立</span></h3>
+  <div class="tbl"><table>
+    <tr><th>項目</th><th class="n">宿泊特化</th><th class="n">アップスケール</th><th class="n">ラグジュアリー</th></tr>
+    <tr><td>客室数（延床/室）</td><td class="n">37室（28㎡）</td><td class="n">29室（36㎡）</td><td class="n">21室（50㎡）</td></tr>
+    <tr><td>ADR／稼働率</td><td class="n">28,000円／85%</td><td class="n">45,000円／80%</td><td class="n">90,000円／72%</td></tr>
+    <tr><td>年間総売上</td><td class="n">3.31億円</td><td class="n">4.12億円</td><td class="n">5.71億円</td></tr>
+    <tr><td>所有者NOI（総売上26%−固都税）</td><td class="n">0.65億円</td><td class="n">0.86億円</td><td class="n">1.28億円</td></tr>
+    <tr><td>総事業費（FF&amp;E・開業費込）</td><td class="n">36.90億円</td><td class="n">37.86億円</td><td class="n">39.83億円</td></tr>
+    <tr class="key"><td>NOI利回り（総事業費比）</td><td class="n ng">1.8%</td><td class="n ng">2.3%</td><td class="n ng">3.2%</td></tr>
+    <tr><td>収益価格（Cap 4.5%）</td><td class="n">14.5億円</td><td class="n">19.2億円</td><td class="n">28.4億円</td></tr>
+    <tr class="key"><td>含み損益</td><td class="n ng">▲22.4億円</td><td class="n ng">▲18.7億円</td><td class="n ng">▲11.5億円</td></tr>
+    <tr><td>損益分岐ADR</td><td class="n">60,800円</td><td class="n">80,400円</td><td class="n">121,200円</td></tr>
+  </table></div>
+  <p>ラグジュアリーでもADR12万円超・稼働72%が必要。100坪・私道接道・広尾徒歩7分の立地でこの単価を継続的に取れる運営者は限られ、運営者リスクは所有者が負う。東京ホテルの期待利回りは4.2%（CBRE 2026年3月）と過去最低で、キャップレート低下による救済も見込めない。</p>
+
+  <h3>3.3 保有型 <span class="tag ng">壊すより貸す方が高い</span></h3>
+  <div class="tbl"><table>
+    <tr><th>項目</th><th class="n">賃貸レジデンス</th><th class="n">店舗ビル建替</th><th class="n">現況保有（再テナント）</th></tr>
+    <tr><td>有効面積／賃料</td><td class="n">257坪／22,000円・95%</td><td class="n">257坪／36,000円・92%</td><td class="n">223.5坪／33,000円</td></tr>
+    <tr><td>年間総収入</td><td class="n">0.64億円</td><td class="n">1.02億円</td><td class="n">0.89億円</td></tr>
+    <tr><td>NOI</td><td class="n">0.31億円</td><td class="n">0.66億円</td><td class="n">0.63億円（現行0.70）</td></tr>
+    <tr><td>総事業費／取得費</td><td class="n">36.89億円</td><td class="n">35.55億円</td><td class="n">26.18億円</td></tr>
+    <tr class="key"><td>NOI利回り</td><td class="n ng">0.8%</td><td class="n ng">1.9%</td><td class="n wn">2.4%（現行2.7%）</td></tr>
+    <tr><td>収益価格（Cap）</td><td class="n">8.3億円（3.7%）</td><td class="n">16.5億円（4.0%）</td><td class="n">18.0億円（3.5%）</td></tr>
+    <tr class="key"><td>含み損益</td><td class="n ng">▲28.6億円</td><td class="n ng">▲19.1億円</td><td class="n ng">▲8.2億円</td></tr>
+  </table></div>
+
+  <h2>4. 感度分析：分譲マンションの事業利益</h2>
+  <p class="note">セルは事業利益（億円）と売上比利益率。緑＝15%以上、黄＝10〜15%、赤＝10%未満。</p>
+  <div class="tbl heat"><table>
+    <tr><th>販売坪単価 ＼ 土地価格</th><th class="n">18億円</th><th class="n">20億円</th><th class="n">22億円</th><th class="n">25億円</th></tr>
+    <tr><td class="num">1,200万円</td><td class="n h-ng">▲0.1（0%）</td><td class="n h-ng">▲2.3（▲7%）</td><td class="n h-ng">▲4.5（▲15%）</td><td class="n h-ng">▲7.7（▲25%）</td></tr>
+    <tr><td class="num">1,400万円</td><td class="n h-wn">4.7（13%）</td><td class="n h-ng">2.6（7%）</td><td class="n h-ng">0.4（1%）</td><td class="n h-ng">▲2.9（▲8%）</td></tr>
+    <tr><td class="num"><b>1,500万円</b></td><td class="n h-ok">7.2（19%）</td><td class="n h-wn">5.0（13%）</td><td class="n h-ng">2.8（7%）</td><td class="n h-ng">▲0.4（▲1%）</td></tr>
+    <tr><td class="num">1,600万円</td><td class="n h-ok">9.6（23%）</td><td class="n h-ok">7.4（18%）</td><td class="n h-wn">5.3（13%）</td><td class="n h-ng">2.0（5%）</td></tr>
+    <tr><td class="num">1,800万円</td><td class="n h-ok">14.5（31%）</td><td class="n h-ok">12.3（27%）</td><td class="n h-ok">10.1（22%）</td><td class="n h-ok">6.9（15%）</td></tr>
+    <tr><td class="num">2,000万円</td><td class="n h-ok">19.3（38%）</td><td class="n h-ok">17.1（33%）</td><td class="n h-ok">15.0（29%）</td><td class="n h-ok">11.7（23%）</td></tr>
+  </table></div>
+  <p class="note">容積率ケース（坪1,500万・土地25億）：保守284% ▲2.1億円、基準301% ▲0.4億円、上振れ330% ＋2.3億円（5%）。近商割合が40%あっても利益率5%に留まる。</p>
+
+  <h2>5. 残余法：用途別に払える土地価格の上限</h2>
+  <div class="chart">
+    <svg viewBox="0 0 860 300" role="img" aria-label="用途別 支払可能土地価格と募集価格25億円の比較">
+      <!-- scale: 0..30億 → x 250..830 (19.33px/億) -->
+      <g class="grid">
+        <line x1="250" y1="18" x2="250" y2="262"/>
+        <line x1="443" y1="18" x2="443" y2="262"/>
+        <line x1="637" y1="18" x2="637" y2="262"/>
+        <line x1="830" y1="18" x2="830" y2="262"/>
+      </g>
+      <text class="lab" x="250" y="282" text-anchor="middle">0</text>
+      <text class="lab" x="443" y="282" text-anchor="middle">10億</text>
+      <text class="lab" x="637" y="282" text-anchor="middle">20億</text>
+      <text class="lab" x="830" y="282" text-anchor="middle">30億</text>
+
+      <text x="240" y="40" text-anchor="end">分譲（坪1,800万・利益15%）</text>
+      <rect class="bar" x="250" y="28" width="482" height="18"/><text x="738" y="42" font-weight="600">24.9億</text>
+      <text x="240" y="74" text-anchor="end">分譲（坪1,500万・利益15%）</text>
+      <rect class="bar" x="250" y="62" width="373" height="18"/><text x="629" y="76" font-weight="600">19.3億</text>
+      <text x="240" y="108" text-anchor="end">現況保有（収益価格＝取得費）</text>
+      <rect class="bar wn" x="250" y="96" width="331" height="18"/><text x="587" y="110" font-weight="600">17.1億</text>
+      <text x="240" y="142" text-anchor="end">ホテル ラグジュアリー</text>
+      <rect class="bar ng" x="250" y="130" width="279" height="18"/><text x="535" y="144" font-weight="600">14.5億</text>
+      <text x="240" y="176" text-anchor="end">ホテル アップスケール</text>
+      <rect class="bar ng" x="250" y="164" width="150" height="18"/><text x="406" y="178" font-weight="600">7.8億</text>
+      <text x="240" y="210" text-anchor="end">店舗ビル建替</text>
+      <rect class="bar ng" x="250" y="198" width="143" height="18"/><text x="399" y="212" font-weight="600">7.4億</text>
+      <text x="240" y="244" text-anchor="end">賃貸レジデンス</text>
+      <rect class="bar ng" x="250" y="232" width="2" height="18"/><text x="258" y="246" font-weight="600">成立せず</text>
+
+      <line class="ask" x1="733" y1="14" x2="733" y2="262"/>
+      <text class="askt" x="733" y="10" text-anchor="middle">募集価格 25億円</text>
+    </svg>
+  </div>
+  <p>西麻布4丁目の公示地価は273万円/㎡（2025年、西麻布4-1-10）で坪903万円。募集の2,497万円/坪は公示の約2.8倍。港区の実勢は公示の1.5〜2倍程度が目安で、開発用地としては<b>1,400〜1,800万円/坪</b>が実勢レンジ。</p>
+
+  <h2>6. 推奨戦略と交渉方針</h2>
+  <ol>
+    <li><b>用途は分譲マンション一択。</b>ホテルは検討から外す。運営者付きでも土地に払える額は最大14億円台。</li>
+    <li><b>指値は19〜20億円</b>（坪1,900〜2,000万円）。残余法（坪1,500万円販売・利益率15%）を根拠に提示する。売主は価格交渉可と明言しており、現況利回り3.8%も市場並みで強気材料は少ない。</li>
+    <li><b>保証金2,070万円の承継</b>と、退去が契約終了（2027/7）まで延びた場合の賃料継続を条件面で整理。合意解約書がなければ「1月末退去」を売主の表明保証にする。</li>
+    <li><b>22億円超は見送り。</b>坪1,600万円以上の販売を前提にしないと15%を確保できず、2028〜29年の販売時点の市況リスクを負う。</li>
+    <li>開発せず既存建物を持ち続ける前提なら上限は<b>17〜18億円</b>。それ以外にこの土地を買う理由はない。</li>
+  </ol>
+  <div class="callout">
+    <p><b>売主の値付けの読み</b>：25億円は現況賃料9,570万円÷3.8%で置かれた収益物件の価格であり、開発用地としての裏付けは弱い。「価格交渉可」「売主直」という条件自体がそれを示している。</p>
+  </div>
+
+  <h2>7. 購入検討時のデューデリジェンス</h2>
+  <ul class="check">
+    <li>用途地域境界の位置（港区都市計画情報サービス）→ 近商割合と容積率の確定</li>
+    <li>高度地区・日影規制・絶対高さ制限 → 設計事務所によるボリュームチェック</li>
+    <li>西側公道の認定幅員（7.1m）、南側私道の所有関係・通行掘削承諾・位置指定の有無</li>
+    <li>確定測量・越境・境界確認</li>
+    <li>賃借人の退去合意書（2027年1月末）と保証金返還債務の承継条件</li>
+    <li>アスベスト調査、地下躯体・杭の撤去範囲、埋設物、土壌汚染</li>
+    <li>港区 中高層紛争予防条例・自転車駐車場条例・ワンルーム条例の該当確認</li>
+    <li>販売坪単価の裏付け：西麻布・広尾・南麻布の新築成約事例、ブランド販売力</li>
+    <li>建築費見積2社以上。2026年は上昇が続き、坪200万円は下限に近い</li>
+    <li>融資条件（金利2%の妥当性、LTV、工事期間中の資金繰り）</li>
+  </ul>
+
+  <h2>8. 前提の根拠</h2>
+  <ul class="src">
+    <li>公示地価 西麻布4-1-10 273万円/㎡（2025）— <a href="https://www.stepon.co.jp/tochi/chikadoukou/13/103_kouji/5_22/">住友不動産ステップ</a>、<a href="https://tochidai.info/area/nishi-azabu/">tochidai.info</a></li>
+    <li>路線価 西麻布住宅地平均 172万円/㎡（2026）— <a href="https://totinokati.com/kakaku/place/13103-U0043/rosenka/">トチノカチ</a></li>
+    <li>新築分譲 港区坪単価 2025年696万円、2026年1〜4月758万円 — <a href="https://www.fudousankeizai.co.jp/share/mansion/654/ss2025.pdf">不動産経済研究所 2025年</a>、<a href="https://www.fudousankeizai.co.jp/share/mansion/670/2643ps.pdf">同 2026年4月</a>、<a href="https://rynne.co.jp/posts/mansion-market/minato">rynne 港区</a></li>
+    <li>建築費 ホテルRC 173.5万円/坪（2024全国）、東京S造 192.7万円/坪（2025）— <a href="https://archi-book.com/news/detail/114">archi-book</a>、<a href="https://ktx.space/2026/03/30/construction-cost-guide-2026/">ktx 2026</a></li>
+    <li>解体費 RC 東京 7.5〜16万円/坪 — <a href="https://www.crassone.jp/price/tokyo?building_type=rc">クラッソーネ</a>、<a href="https://rebld.jp/biru-kaitai-hiyou/">リボビル</a></li>
+    <li>期待利回り 東京賃貸住宅（城南）3.6〜3.7%、東京ホテル 4.2% — <a href="https://www.reinet.or.jp/pdf/REIS/published-document_main_the-japanese-real-estate-investor-survey_202604.pdf">日本不動産研究所 第54回</a>、<a href="https://www.cbre.co.jp/insights/reports/japan-cap-rate-survey-march-2026">CBRE 2026年3月</a></li>
+    <li>法規制 — <a href="https://www.city.minato.tokyo.jp/toshikeikaku/koudotiku.html">港区 高度地区</a>、<a href="https://www.city.minato.tokyo.jp/kenchikushinsa/chushajo/chushajojorei.html">港区 駐車場条例</a></li>
+  </ul>
+  <p class="note">本レポートは公開情報と概要書に基づく机上試算。用途地域境界・高さ制限・建築費・販売価格は専門家のボリュームチェックと見積で確定させる必要がある。数式入りの試算表（xlsx）と計算モデル（Python）は別添。</p>
+</div>
