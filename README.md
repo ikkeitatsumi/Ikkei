@@ -11,6 +11,9 @@
 | `model/feasibility.py` | 収支モデル本体（Python）。`python3 model/feasibility.py` で全シナリオを標準出力 |
 | `model/build_xlsx.py` | モデルから xlsx を生成。`python3 model/build_xlsx.py` |
 | `source/FACE西麻布_物件概要書.pdf` | 仲介業者提供の概要書・地図・レントロール |
+| `source/touki/` | 登記情報提供サービス取得の土地全部事項PDF（西麻布3筆・京都NAZUNA椿通5筆、2026-09-08取得） |
+| `docs/謄本確認メモ_NAZUNA椿通_西麻布.md` | 上記謄本の読み取り結果（所有者・担保・履歴・注意点） |
+| `docs/謄本確認_NAZUNA椿通_西麻布.html` | 同内容のスマホ向けページ |
 
 ## 使い方
 

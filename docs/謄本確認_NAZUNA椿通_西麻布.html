@@ -1,0 +1,226 @@
+<title>NAZUNA椿通・西麻布 謄本チェック</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#F7F5F0; --panel:#FFFFFF; --ink:#1F1D1A; --muted:#6E685E; --rule:#DDD8CE;
+  --accent:#2C4C7C; --accent-soft:#E6ECF5; --flag:#A8352A; --flag-soft:#F6E4E1; --ok:#2E6B45; --ok-soft:#E2EFE6;
+  --mono:"Noto Sans JP",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#171716; --panel:#1F1F1D; --ink:#ECE8E0; --muted:#9B958A; --rule:#34322D;
+    --accent:#8FB0E0; --accent-soft:#232C3A; --flag:#E0705F; --flag-soft:#3A2522; --ok:#7FC49A; --ok-soft:#20302A;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#171716; --panel:#1F1F1D; --ink:#ECE8E0; --muted:#9B958A; --rule:#34322D;
+  --accent:#8FB0E0; --accent-soft:#232C3A; --flag:#E0705F; --flag-soft:#3A2522; --ok:#7FC49A; --ok-soft:#20302A;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:660px;margin:0 auto;padding:0 16px 64px}
+header.top{padding:28px 0 12px}
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+h1{font-family:"Shippori Mincho",serif;font-weight:700;font-size:26px;line-height:1.3;margin:0 0 6px;text-wrap:balance}
+.lede{color:var(--muted);margin:0;font-size:14px}
+nav.jump{position:sticky;top:0;z-index:5;background:var(--bg);display:flex;gap:8px;padding:10px 0;border-bottom:1px solid var(--rule);margin-bottom:8px}
+nav.jump a{flex:1;text-align:center;text-decoration:none;color:var(--accent);background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:8px 6px;font-weight:500;font-size:14px}
+nav.jump a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+section.prop{padding-top:28px}
+section.prop h2{font-family:"Shippori Mincho",serif;font-weight:700;font-size:22px;line-height:1.3;margin:0 0 2px;text-wrap:balance}
+.sub{color:var(--muted);font-size:13px;margin:0 0 16px}
+h3{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:28px 0 10px;font-weight:700}
+.verdict{background:var(--panel);border:1px solid var(--rule);border-left:4px solid var(--accent);padding:14px 16px;border-radius:0 6px 6px 0}
+.verdict p{margin:0 0 8px}.verdict p:last-child{margin:0}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:14px;margin:0}
+.kv dt{color:var(--muted);white-space:nowrap}.kv dd{margin:0;font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto;border:1px solid var(--rule);border-radius:6px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:480px}
+th,td{padding:8px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}
+th{font-weight:500;color:var(--muted);font-size:12px;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.chain{list-style:none;margin:0;padding:0;border-left:2px solid var(--rule);margin-left:6px}
+.chain li{position:relative;padding:0 0 14px 18px;font-size:14px}
+.chain li::before{content:"";position:absolute;left:-7px;top:9px;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--muted)}
+.chain li.now::before{background:var(--accent);border-color:var(--accent)}
+.chain li:last-child{padding-bottom:0}
+.chain .d{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;display:block}
+.chain b{font-weight:700}
+.flags{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.flags li{background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:10px 12px;font-size:14px;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start}
+.pill{font-size:11px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:4px;white-space:nowrap;margin-top:3px}
+.pill.red{background:var(--flag-soft);color:var(--flag)}
+.pill.blue{background:var(--accent-soft);color:var(--accent)}
+.pill.green{background:var(--ok-soft);color:var(--ok)}
+ol.next{margin:0;padding-left:22px;font-size:14px}ol.next li{margin-bottom:6px}
+.files{display:flex;flex-direction:column;gap:6px}
+.files a{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:10px 12px;text-decoration:none;color:var(--ink);font-size:14px}
+.files a span.src{font-size:11px;color:var(--accent);white-space:nowrap;letter-spacing:.04em}
+.files a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.note{font-size:13px;color:var(--muted);margin:10px 0 0}
+footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid var(--rule);padding-top:12px}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <p class="eyebrow">登記情報提供サービス取得分 ｜ 2026-09-08 14:14〜14:31</p>
+  <h1>NAZUNA椿通・西麻布 謄本チェック</h1>
+  <p class="lede">土地全部事項 9通（京都6通・東京3通）の読み取り結果と原本リンク</p>
+</header>
+
+<nav class="jump">
+  <a href="#kyoto">京都 NAZUNA椿通</a>
+  <a href="#tokyo">東京 FACE西麻布</a>
+</nav>
+
+<!-- ============ KYOTO ============ -->
+<section class="prop" id="kyoto">
+  <h2>NAZUNA京都 椿通</h2>
+  <p class="sub">京都市下京区高辻通大宮西入坊門町 ｜ 売買41億・オペレーション付 ｜ 23室</p>
+
+  <div class="verdict">
+    <p><b>名義人は巨大特定目的会社</b>（虎ノ門5-1-4、2024-06-14 売買取得）。SPC（特定目的会社）が土地・建物を保有し、運営はNazunaという分離構造。</p>
+    <p><b>担保は仮登記の抵当権3本、合計25.6億円</b>。差押・賃借権・地上権の登記はなし。</p>
+    <p><b>敷地は土地31筆・建物26棟</b>（共同担保目録第9234号）。今回取得したのは土地5筆で、うち2筆（837-1・839-1）は<b>敷地外の隣地</b>。</p>
+  </div>
+
+  <h3>取得した筆</h3>
+  <div class="tbl"><table>
+    <tr><th>地番</th><th>地積</th><th>所有者</th><th>現存担保</th><th>備考</th></tr>
+    <tr><td class="num">838</td><td class="num">140.76㎡</td><td>巨大特定目的会社</td><td>仮登記3本</td><td>2020-03-26 筆界特定</td></tr>
+    <tr><td class="num">837-2</td><td class="num">5.59㎡</td><td>巨大特定目的会社</td><td>仮登記3本</td><td>2020-03-25 分筆</td></tr>
+    <tr><td class="num">839-2</td><td class="num">19.14㎡</td><td>巨大特定目的会社</td><td>仮登記3本</td><td>2020-03-25 分筆</td></tr>
+    <tr><td class="num">837-1</td><td class="num">113.62㎡</td><td>大谷俊雄（個人）</td><td>なし</td><td>敷地外・隣地</td></tr>
+    <tr><td class="num">839-1</td><td class="num">100.82㎡</td><td>大谷俊雄（個人）</td><td>なし</td><td>敷地外・隣地</td></tr>
+  </table></div>
+
+  <h3>所有権の流れ（838）</h3>
+  <ul class="chain">
+    <li><span class="d">1990-09-14（相続）</span>高木文夫</li>
+    <li><span class="d">2019-01-30 売買</span>Nazuna Kyoto Hanamachi合同会社</li>
+    <li><span class="d">2023-01-27 売買</span>カメリア特定目的会社</li>
+    <li class="now"><span class="d">2024-06-14 売買</span><b>巨大特定目的会社</b>（会社法人等番号 0104-05-022412）</li>
+  </ul>
+  <p class="note">837-2・839-2は 大谷俊雄 → 株式会社Kiraku（2020-04-16）→ カメリア → 巨大 の順。3法人とも本店は虎ノ門5-1-4。</p>
+
+  <h3>借入の履歴（乙区・838）</h3>
+  <div class="tbl"><table>
+    <tr><th>設定</th><th>債権者</th><th>金額</th><th>利率</th><th>状態</th></tr>
+    <tr><td class="num">2019-01-30</td><td>トパーズ・キャピタル</td><td class="num">5.8億</td><td class="num">6.126%</td><td>2019-07 解除</td></tr>
+    <tr><td class="num">2019-07-26</td><td>三菱UFJリース（分割貸付）</td><td class="num">15.5億</td><td class="num">2.089%</td><td>2023-01 解除</td></tr>
+    <tr><td class="num">2023-01-27</td><td>東京スター銀行 ＋ 特定社債先取特権</td><td class="num">17.8億 ＋ 1億</td><td class="num">2.575%</td><td>2024-06 抹消</td></tr>
+    <tr><td class="num">2024-06-14</td><td><b>きらぼし銀行</b></td><td class="num"><b>13.0億</b></td><td class="num">1.787%</td><td>現存（仮登記）</td></tr>
+    <tr><td class="num">2024-06-14</td><td><b>大垣共立銀行</b></td><td class="num"><b>10.0億</b></td><td class="num">1.787%</td><td>現存（仮登記）</td></tr>
+    <tr><td class="num">2024-06-14</td><td><b>大垣共立銀行</b></td><td class="num"><b>2.6億</b></td><td class="num">3.287%</td><td>現存（仮登記）</td></tr>
+  </table></div>
+  <p class="note">損害金は年14%。売買41億に対して負債25.6億＝LTV 62%。</p>
+
+  <h3>共同担保目録 第9234号（担保に入っている全物件）</h3>
+  <div class="tbl"><table>
+    <tr><th>区分</th><th>内容</th><th>件数</th></tr>
+    <tr><td>土地</td><td>坊門町836番、836番1〜836番27</td><td class="num">28筆</td></tr>
+    <tr><td>土地</td><td>坊門町837番2、838番、839番2</td><td class="num">3筆</td></tr>
+    <tr><td>建物</td><td>836番地1〜3・7〜27 上の家屋番号186〜213（町家1棟ずつ）</td><td class="num">24棟</td></tr>
+    <tr><td>建物</td><td>836番地5ほか複数筆にまたがる家屋番号836番5（大型棟）</td><td class="num">1棟</td></tr>
+    <tr><td>建物</td><td>838番地 上の家屋番号838番</td><td class="num">1棟</td></tr>
+  </table></div>
+
+  <h3>注意点</h3>
+  <ul class="flags">
+    <li><span class="pill red">未取得</span><span>836番系28筆と建物26棟の謄本がまだ無い。地積合計・建物の構造/築年/所有者は未確認。</span></li>
+    <li><span class="pill red">隣地</span><span>837-1・839-1は大谷氏（個人）名義の残地。境界・通路・越境の取り決めを確認する。</span></li>
+    <li><span class="pill blue">売主</span><span>登記名義はSPC。TMKの資産譲渡か、優先出資・特定社債の持分譲渡かで手続きと税務が変わる。</span></li>
+    <li><span class="pill blue">仮登記</span><span>抵当権は全て仮登記。買主のローンで本登記ではなく抹消→再設定になる想定。</span></li>
+  </ul>
+
+  <h3>次に取る登記</h3>
+  <ol class="next">
+    <li>土地：坊門町836、836-1〜836-27（28筆）</li>
+    <li>建物：家屋番号186〜213・836-5・838（26棟）</li>
+    <li>巨大特定目的会社の登記事項証明書（取締役＝AM会社の特定）</li>
+  </ol>
+
+  <h3>原本PDF</h3>
+  <div class="files">
+    <a href="https://drive.google.com/file/d/1L7CmX4JgO3AIU4SR0eIPKqKcHRLVsrWX/view">坊門町838（共同担保目録付・9頁）<span class="src">Drive</span></a>
+    <a href="https://drive.google.com/file/d/1O-OVESfPNcup7MnQFDNS_bAUJevVsSyh/view">坊門町837-2<span class="src">Drive</span></a>
+    <a href="https://drive.google.com/file/d/1WaUSUrqHDOwaaaV4Egsb5juBRvGT63u5/view">坊門町839-2<span class="src">Drive</span></a>
+    <a href="https://drive.google.com/file/d/1wsfi-VMZiAH4Wmy6zVBe3Y8YGoX43PrG/view">坊門町837-1（隣地）<span class="src">Drive</span></a>
+    <a href="https://drive.google.com/file/d/11QnxvYJGfxfpoz3-3k2k-v2v51bswruF/view">坊門町839-1（隣地）<span class="src">Drive</span></a>
+    <a href="https://drive.google.com/drive/folders/1jKq_N0Ju3cxI-ySLAR7cERxcZPrvwyIO">フォルダ：NAZUNA京都椿通_41億_オペ付売買／登記<span class="src">Drive</span></a>
+  </div>
+</section>
+
+<!-- ============ TOKYO ============ -->
+<section class="prop" id="tokyo">
+  <h2>FACE西麻布（土地）</h2>
+  <p class="sub">港区西麻布4-3-7 ｜ 地番 11-17・11-18・48-5 ｜ 募集25億 ｜ 330.99㎡</p>
+
+  <div class="verdict">
+    <p><b>3筆とも株式会社翔栄（元麻布3-2-13）名義</b>。2023-05-24 に3筆一括で売買取得。</p>
+    <p><b>現存する担保は根抵当権1本のみ</b>：極度額13.2億円、近畿産業信用組合（2023-05-24設定）。差押・仮登記・賃借権・地上権の登記はなく、<b>権利関係はクリーン</b>。</p>
+    <p>登記地積の合計 330.99㎡ は概要書と一致。実測はない。</p>
+  </div>
+
+  <h3>取得した筆</h3>
+  <div class="tbl"><table>
+    <tr><th>地番</th><th>地積</th><th>所有者</th><th>現存担保</th></tr>
+    <tr><td class="num">11-17</td><td class="num">26.57㎡</td><td>株式会社翔栄</td><td>根抵当 13.2億（近畿産業信組）</td></tr>
+    <tr><td class="num">11-18</td><td class="num">185.52㎡</td><td>株式会社翔栄</td><td>同上</td></tr>
+    <tr><td class="num">48-5</td><td class="num">118.90㎡</td><td>株式会社翔栄</td><td>同上</td></tr>
+  </table></div>
+
+  <h3>所有権の流れ（3筆共通）</h3>
+  <ul class="chain">
+    <li><span class="d">1991-06-20 売買（48-5は1992-06-15）</span>住供保証株式会社（池袋）</li>
+    <li><span class="d">2000-12-06 売買</span>株式会社アデッソ（南青山5）</li>
+    <li><span class="d">2001-04-27 売買</span>株式会社ユニマット不動産（南青山2）</li>
+    <li><span class="d">2002-08-13 信託</span>モルガン信託銀行（後のJPモルガン信託銀行）</li>
+    <li><span class="d">2007-07-25 信託財産引継</span>株式会社ユニマット不動産</li>
+    <li><span class="d">2010-08-30 売買</span>むさしのコンサルティング株式会社（さいたま市）</li>
+    <li><span class="d">2012-12-26 売買</span>有限会社村野（清瀬市）</li>
+    <li class="now"><span class="d">2023-05-24 売買</span><b>株式会社翔栄</b>（港区元麻布3-2-13）</li>
+  </ul>
+
+  <h3>借入の履歴（乙区・3筆共通）</h3>
+  <div class="tbl"><table>
+    <tr><th>設定</th><th>債権者</th><th>金額</th><th>債務者</th><th>状態</th></tr>
+    <tr><td class="num">1990-03</td><td>大和生命保険</td><td class="num">根抵当 13.75億→20億</td><td>住供保証ほか</td><td>1995 共同債権買取機構へ譲渡、2000 解除</td></tr>
+    <tr><td class="num">2000-12-06</td><td>ファーストクレジット</td><td class="num">2.35億（9.84%）</td><td>アデッソ</td><td>2001-04 弁済</td></tr>
+    <tr><td class="num">2000-12-06</td><td>ファーストクレジット</td><td>地上権仮登記（60年・11-18のみ）</td><td>—</td><td>2001-04 解除</td></tr>
+    <tr><td class="num">2002-08-13</td><td>モルガン・スタンレー・ジャパン → メロディ・ファンディング</td><td class="num">27.498億（3.23%・責任財産限定）</td><td>モルガン信託銀行</td><td>2007-07 弁済</td></tr>
+    <tr><td class="num">2007-12-14</td><td>三井住友銀行 青山支店（3億は東京都民銀行へ）</td><td class="num">60億（2.0%）</td><td>ユニマット不動産</td><td>2010-08 解除</td></tr>
+    <tr><td class="num">2010-08-30</td><td>三井住友銀行 小山支店</td><td class="num">根抵当 8億</td><td>むさしのコンサルティング</td><td>2012-12 解除</td></tr>
+    <tr><td class="num">2012-12-26</td><td>三菱東京UFJ銀行 所沢支店</td><td class="num">根抵当 9.35億</td><td>有限会社村野</td><td>2023-05 解除</td></tr>
+    <tr><td class="num">2023-05-24</td><td><b>近畿産業信用組合</b></td><td class="num"><b>根抵当 13.2億</b></td><td><b>株式会社翔栄</b></td><td>現存</td></tr>
+  </table></div>
+  <p class="note">バブル期の大和生命融資が1995年に不良債権処理へ回り、2002〜2007年はモルガン・スタンレー系ノンリコース、2007年はSMBC 60億の一括担保。機関投資家の手を何度も渡った土地。</p>
+
+  <h3>注意点</h3>
+  <ul class="flags">
+    <li><span class="pill green">クリーン</span><span>差押・仮登記・賃借権・地上権の登記なし。現存担保は根抵当1本。</span></li>
+    <li><span class="pill blue">取得価格</span><span>2023年5月に極度額13.2億の根抵当で取得。極度額は融資額の1.1〜1.2倍が通例なので、取得時借入は10億前後と推定。募集25億との差が交渉の起点。</span></li>
+    <li><span class="pill red">未取得</span><span>建物の全部事項がない。現況建物の家屋番号・所有者・築年を確認する。建物賃借権は登記不要なので、レントロールの借家人は契約書で確認。</span></li>
+    <li><span class="pill red">測量</span><span>登記地積のみで実測なし。確定測量が必要。</span></li>
+  </ul>
+
+  <h3>次に取る登記</h3>
+  <ol class="next">
+    <li>建物の全部事項（現況建物）</li>
+    <li>共同担保目録第5554号（近畿産業信組の他担保）</li>
+    <li>株式会社翔栄の登記事項証明書</li>
+  </ol>
+
+  <h3>原本PDF</h3>
+  <div class="files">
+    <a href="https://github.com/ikkeitatsumi/Ikkei/blob/claude/hotel-property-registry-check-yp72kb/source/touki/tokyo_nishiazabu4_11-17_land.pdf">西麻布4丁目 11-17<span class="src">GitHub</span></a>
+    <a href="https://github.com/ikkeitatsumi/Ikkei/blob/claude/hotel-property-registry-check-yp72kb/source/touki/tokyo_nishiazabu4_11-18_land.pdf">西麻布4丁目 11-18<span class="src">GitHub</span></a>
+    <a href="https://github.com/ikkeitatsumi/Ikkei/blob/claude/hotel-property-registry-check-yp72kb/source/touki/tokyo_nishiazabu4_48-5_land.pdf">西麻布4丁目 48-5<span class="src">GitHub</span></a>
+    <a href="https://drive.google.com/file/d/1CmhCpbJVOIwjG4w9SbwfkqaXJhmFJ8PP/view">原本ZIP（京都3通＋東京3通）<span class="src">Drive</span></a>
+  </div>
+  <p class="note">京都分の原本も同じGitHubフォルダ <code>source/touki/</code> に保存。詳細メモは <code>docs/謄本確認メモ_NAZUNA椿通_西麻布.md</code>。</p>
+</section>
+
+<footer>出典：登記情報提供サービス 2026-09-08 取得の土地全部事項証明情報。金額・利率は登記記載のとおり。取得価格の推定は極度額からの目安で、登記に記載はない。</footer>
+</div>
