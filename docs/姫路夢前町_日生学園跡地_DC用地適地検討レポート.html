@@ -1,0 +1,900 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>姫路夢前 日生学園跡地 DC用地検討</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#f4f6f8;--paper:#fff;--ink:#1c2430;--ink2:#4b5866;--rule:#d5dbe1;--accent:#0f6b5f;--accent-soft:#dcefea;--neg:#b0402c;--warn:#a0741c;--th:#eef2f5}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f1418;--paper:#171d23;--ink:#e6eaee;--ink2:#aab4bf;--rule:#2c353e;--accent:#5fc3b2;--accent-soft:#173a35;--neg:#e0826f;--warn:#d9a94a;--th:#1f272e}}
+:root[data-theme="dark"]{--bg:#0f1418;--paper:#171d23;--ink:#e6eaee;--ink2:#aab4bf;--rule:#2c353e;--accent:#5fc3b2;--accent-soft:#173a35;--neg:#e0826f;--warn:#d9a94a;--th:#1f272e}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",system-ui,sans-serif;font-size:14.5px;line-height:1.75}
+.page{max-width:1080px;margin:0 auto;padding:32px 20px 64px;background:var(--paper)}
+h1{font-size:1.55rem;line-height:1.4;margin:0 0 .6rem;border-left:6px solid var(--accent);padding-left:.7rem}
+h2{font-size:1.2rem;margin:2.2rem 0 .8rem;padding-bottom:.3rem;border-bottom:2px solid var(--accent)}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent)}
+p{margin:.55rem 0}
+hr{border:0;border-top:1px solid var(--rule);margin:1.6rem 0}
+.tbl{overflow-x:auto;margin:.6rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:13.2px}
+th,td{border:1px solid var(--rule);padding:6px 9px;vertical-align:top;text-align:left}
+th{background:var(--th);font-weight:700;white-space:nowrap}
+td:first-child{white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--th) 45%,transparent)}
+strong{color:var(--accent)}
+a{color:var(--accent)}
+ul,ol{padding-left:1.4rem}
+li{margin:.25rem 0}
+code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.9em;background:var(--accent-soft);padding:0 .3em;border-radius:3px}
+.lead{color:var(--ink2);font-size:.92rem}
+@media (max-width:600px){body{font-size:13.5px}.page{padding:20px 16px 48px}td:first-child{white-space:normal}}
+</style></head>
+<body><div class="page">
+<h1>姫路市夢前町戸倉 日生学園跡地（33.6ha）データセンター用地 適地・事業性検討レポート</h1>
+<p><span class="lead">作成日: 2026-09-10　　対象: 兵庫県姫路市夢前町戸倉566番 自由ヶ丘高等学校（旧 日生学園第三高等学校）跡地　　募集価格: 16億5,000万円（坪16,238円・㎡4,912円）
+</span>参照フレーム: 弊社「土山町山中 データセンター適地調査」（2026-08-19）、「全国DC誘致案件 自治体公募3件比較」（2026-08-24）、「エッジDCの距離基準」（2026-08-23）</p>
+<hr />
+<h2>0. 資料の鮮度についての注記（最初に確認すべきこと）</h2>
+<ul>
+<li>提供された物件概要書はスキャン日付が <strong>2022年9月3日</strong>、建物・土地内訳の「基礎調査用資料」は <strong>平成6年（1994年）4月26日</strong> 付。自由ヶ丘高校は <strong>2021年4月1日休校</strong>（生徒は三重の青山高校へ移籍）で、資料は休校翌年に作られた売り出し資料と見られる。</li>
+<li>したがって <strong>現在も売りに出ているか、価格が変わっていないか、建物が一部解体されていないか</strong> を仲介（有限会社五軒邸・姫路市五軒邸2-130、担当 清水氏）に最初に確認する必要がある。本レポートの数値は概要書の16.5億円・335,897.83㎡を前提にしている。</li>
+<li>取引態様は <strong>仲介</strong>（売主直ではない）。弊社が入る場合は客付側の共同仲介か、買主としての取得になる。</li>
+</ul>
+<hr />
+<h2>1. 結論（先に要点）</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>評価軸</th>
+<th>評価</th>
+<th>要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>敷地規模・形状</strong></td>
+<td>● 良好</td>
+<td>登記33.6haのうち <strong>平場（運動場＋建物敷地）約11.1ha</strong>、残り22.7haは山林。平場だけでハイパースケール事業者の取得基準（概ね10ha以上）に届く。土山（平場3.0ha・10〜40MW上限）とは規模の階級が違う。</td>
+</tr>
+<tr>
+<td><strong>電力（系統接続）</strong></td>
+<td>■ 未確認・最重要</td>
+<td>関電エリア。500kV幹線（山崎開閉所・播磨中央線・山崎智頭線）が西約10kmにあり、姫路臨海にはLNG火力（姫路第一 195万kW新設計画）がある「電源に近い」立地。ただし <strong>DCが実際に繋ぐ77kV／154kV変電所の位置・空き容量・負担金は未確認</strong>。ここが白なら前進、黒なら終了。</td>
+</tr>
+<tr>
+<td><strong>通信</strong></td>
+<td>■ 未確認</td>
+<td>中国自動車道に隣接（幹線光ファイバーの経路になりやすい）が、大阪・神戸への冗長ダークファイバー引込可否は未確認。</td>
+</tr>
+<tr>
+<td><strong>水・下水</strong></td>
+<td>● 良好</td>
+<td>概要書に上水道・下水道あり。全寮制高校（定員180人/学年＋寮）を支えたインフラが残る。空冷主体なら大量の水は不要。</td>
+</tr>
+<tr>
+<td><strong>アクセス</strong></td>
+<td>● 良好</td>
+<td>中国道 山崎IC 車10分、夢前スマートIC（ETC専用・2015年開通）至近。東側約7m道路。大阪約100km、神戸約65km、姫路駅約20km。</td>
+</tr>
+<tr>
+<td><strong>災害安全性</strong></td>
+<td>▲ 要確認</td>
+<td>内陸・丘陵（津波なし）。ただし <strong>山崎断層帯が夢前町の直下を通る</strong>（主部南東部 M7.3程度、30年確率ほぼ0〜0.01%）。土砂災害警戒区域・盛土規制区域の該当を机上確認。</td>
+</tr>
+<tr>
+<td><strong>都市計画・許認可</strong></td>
+<td>● 希少性あり</td>
+<td><strong>都市計画区域外</strong>（旧夢前町全域）。用途地域・容積・建ぺい・高さ制限なし＝北茨城案件と同じ「制限なし」の希少性。効くのは開発許可（1ha以上・姫路市長）と、山林に手を付ける場合の林地開発許可（兵庫県）。平場に収めれば林地開発は回避できる。</td>
+</tr>
+<tr>
+<td><strong>商圏（エッジ適性）</strong></td>
+<td>✕ 不成立</td>
+<td>10km圏人口は概算で数万人規模。弊社基準（10km圏100万人）に遠く及ばず、エッジDCではない。<strong>電源立地型・BCP/バックアップ型・AI学習/バッチ型</strong> の用地として売る。</td>
+</tr>
+<tr>
+<td><strong>行政の姿勢</strong></td>
+<td>▲ 中立</td>
+<td>姫路市は企業立地促進制度を2025年10月に拡充（成長産業向け）。兵庫県はGX戦略地域の有望地域だが「コンビナート等再生型」で、DC集積型ではない。DC誘致を市が主導している形跡は現時点で見当たらない。</td>
+</tr>
+<tr>
+<td><strong>価格（16.5億円）</strong></td>
+<td>DC成立なら安い／不成立なら高い</td>
+<td>DC事業者にとって土地代は <strong>総事業費の0.7〜3.3%</strong>（20〜100MW）で価格は論点にならない。一方、DC以外の出口（現況一括賃貸・蓄電池・太陽光・産業用地）から見た土地建物の実力値は <strong>1〜3億円</strong> で、16.5億円は3〜6倍。<strong>「電力が取れるか」に全額を賭ける価格</strong>である。</td>
+</tr>
+<tr>
+<td><strong>推奨</strong></td>
+<td><strong>停止条件付き／オプション型で押さえる</strong></td>
+<td>現物での投機取得は推奨しない。①売主側で関電送配電への受電事前相談を実施させ、②接続検討で受電30MW以上・5年以内の一次回答が出ることを停止条件に、③DC事業者・パワードシェル事業者と組んで取得する二段構え。電力が確認できる前に16.5億円を払う理由はない。現物で買うなら <strong>5〜8億円</strong>（DC以外の出口価値＋オプション価値）が上限。</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>2. 物件情報の整理と気づき</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>内容</th>
+<th>気づき・確認事項</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>所在</td>
+<td>姫路市夢前町戸倉566番　自由が丘高等学校（日生学園）</td>
+<td>中国自動車道の南側に接し、県道三木山崎線から進入。</td>
+</tr>
+<tr>
+<td>交通</td>
+<td>中国道 山崎ICより車10分</td>
+<td>東側には夢前スマートIC（前之庄）。姫路市街から夢前川沿いに北上約20km。</td>
+</tr>
+<tr>
+<td>敷地</td>
+<td>335,897.83㎡（101,609坪）</td>
+<td>内訳（H6資料）: 屋外運動場 41,971㎡／建物敷地その他 68,600㎡／実験実習地（山林）226,694㎡。合計は登記面積と0.4%差。<strong>平場 約11.1ha、山林 約22.7ha</strong>。</td>
+</tr>
+<tr>
+<td>地目</td>
+<td>山林・原野・学校用地</td>
+<td>山林部分が地域森林計画対象民有林かどうかで林地開発許可の要否が決まる。</td>
+</tr>
+<tr>
+<td>建物</td>
+<td>校舎・管理棟 8,652㎡、体育館・トレーニングセンター 4,461㎡、寮4棟＋ゼミ棟 10,781㎡、食堂・クリーニング 1,669㎡、職員住宅18棟 1,501㎡、他 約460㎡ ＝ <strong>延床 約27,500㎡</strong></td>
+<td>1983年開校。RC造主体と推定。<strong>アスベスト調査必須</strong>。解体すると約7.3億円（7万円/坪＋アスベスト等1.5億円）。</td>
+</tr>
+<tr>
+<td>都市計画</td>
+<td>都市計画区域外</td>
+<td>姫路市は旧夢前町・安富町・家島町の全域を都市計画区域外としている。建ぺい率・容積率の指定なし。</td>
+</tr>
+<tr>
+<td>取引条件</td>
+<td>学校以外の用途は開発許可が必要／倉庫・工場・レジャー施設として／現状有姿／引渡し相談</td>
+<td>「現況のまま学校として利用する場合は開発許可不要」は正しい。DCの場合も、既存の建物敷地内で区画形質の変更を伴わなければ開発行為に当たらない余地があり、姫路市と事前相談すべき。</td>
+</tr>
+<tr>
+<td>設備</td>
+<td>関西電力／LPガス／上水道／下水道</td>
+<td>H6資料には受水槽・浄化槽・ガス庫の記載があり、「下水道」が公共下水か浄化槽かは要確認。既存の受電設備（高圧）の容量も確認。</td>
+</tr>
+<tr>
+<td>道路</td>
+<td>東側 約7m</td>
+<td>都市計画区域外のため接道義務（建基法43条）は原則適用外だが、DCの搬入（トレーラー）・消防活動には7mで足りる。</td>
+</tr>
+<tr>
+<td>価格</td>
+<td>16億5,000万円（坪16,238円）</td>
+<td>全体で4,912円/㎡。山林をゼロ評価すると平場 <strong>14,923円/㎡</strong>。夢前町の基準地価平均（宅地）20,900円/㎡の約7割。解体費7.3億円を上乗せすると平場 約21,500円/㎡で宅地並み。</td>
+</tr>
+<tr>
+<td>沿革</td>
+<td>1983年 日生学園第三高校開校 → 2015年 自由ヶ丘高校に改称 → 2021年4月 休校</td>
+<td>新入生が38人（定員180人の約1/5）まで落ち込み、収支悪化で休校。売主は学校法人日生学園と推定（要確認）。</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>3. 土山町山中との比較（DC用地としての位置づけ）</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>土山町山中（2026-08-19調査）</th>
+<th>姫路夢前・日生学園跡地</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>面積</td>
+<td>3.1ha（造成平場 約3.0ha）</td>
+<td>33.6ha（造成済平場 約11.1ha＋山林 22.7ha）</td>
+</tr>
+<tr>
+<td>現況</td>
+<td>山林（切土造成計画・テールアルメ要）</td>
+<td>閉校した全寮制高校。運動場・建物敷地は <strong>造成済</strong>。校舎・寮 27,500㎡が残る</td>
+</tr>
+<tr>
+<td>都市計画</td>
+<td>非線引き区域の外縁部（区域内外 未確定）</td>
+<td>都市計画区域外（確定）</td>
+</tr>
+<tr>
+<td>効く許認可</td>
+<td>林地開発許可ほぼ必須、盛土規制</td>
+<td>開発許可（1ha以上・姫路市長）。平場に収めれば林地開発回避可</td>
+</tr>
+<tr>
+<td>上限規模</td>
+<td>郊外型単棟 10〜40MW</td>
+<td>郊外型〜キャンパス型 30〜100MW（面積上は100MW超も可能）</td>
+</tr>
+<tr>
+<td>市場ポジション</td>
+<td>郊外型ミドル単棟</td>
+<td>ハイパースケールcampus（10ha以上）の面積要件に該当</td>
+</tr>
+<tr>
+<td>電力</td>
+<td>特高系統からの距離 未確認</td>
+<td>500kV幹線 約10km、臨海LNG火力 約25km。77/154kV変電所 未確認</td>
+</tr>
+<tr>
+<td>通信</td>
+<td>峠麓、引込負担大の懸念</td>
+<td>中国道沿い。幹線経路の可能性はあるが未確認</td>
+</tr>
+<tr>
+<td>高速</td>
+<td>新名神 甲賀土山IC 15分</td>
+<td>中国道 山崎IC 10分、夢前SIC至近</td>
+</tr>
+<tr>
+<td>都心距離</td>
+<td>大阪100km／名古屋70km</td>
+<td>大阪100km／神戸65km／姫路20km</td>
+</tr>
+<tr>
+<td>商圏</td>
+<td>クラスタ外の単独立地</td>
+<td>同左（10km圏 数万人）</td>
+</tr>
+<tr>
+<td>災害</td>
+<td>内陸 標高300m</td>
+<td>内陸 丘陵地。山崎断層帯が直下</td>
+</tr>
+<tr>
+<td>行政</td>
+<td>甲賀市がDC市場調査を実施済（追い風）</td>
+<td>姫路市 企業立地促進制度。県のGX戦略地域はコンビナート型</td>
+</tr>
+<tr>
+<td>買い手層</td>
+<td>パワードシェル／AI特化</td>
+<td>同左に加え、ハイパースケール系・通信系の候補にも乗る規模</td>
+</tr>
+<tr>
+<td>解体・既存建物</td>
+<td>なし</td>
+<td><strong>解体費 約7.3億円</strong> が土地代に上乗せされる</td>
+</tr>
+</tbody>
+</table></div>
+<p>土山で「用途地域変更は論点にならず、電力が全て」と整理した結論は本件にもそのまま当てはまる。違いは、本件は <strong>規模がハイパースケール級の候補に乗ること</strong>、<strong>造成済み平場を持つこと</strong>、そして <strong>既存建物の解体費という固有のマイナス</strong> を持つことの3点。</p>
+<hr />
+<h2>4. データセンター適性評価</h2>
+<h3>4.1 成立し得る規模（試算レンジ）</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>目安</th>
+<th>前提</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>建屋フットプリント</td>
+<td>3〜5ha</td>
+<td>平場11.1haのうち、残地は受変電・非常用発電機ヤード・冷却設備・車路・緩衝帯</td>
+</tr>
+<tr>
+<td>延床面積</td>
+<td>5〜12万㎡</td>
+<td>2〜4階建（郊外型は低層が標準）</td>
+</tr>
+<tr>
+<td>IT負荷</td>
+<td><strong>30〜100MW級</strong></td>
+<td>低層前提の電力密度 約10MW/ha。PDG TY1（さいたま・6階建 29MW/ha）並みに積めば面積上は300MW相当だが、受電側が先に制約</td>
+</tr>
+<tr>
+<td>受電容量</td>
+<td>40〜130MW</td>
+<td>PUE 1.3</td>
+</tr>
+<tr>
+<td>拡張余地</td>
+<td>山林22.7ha</td>
+<td>林地開発許可（兵庫県）を取れば第2期以降の拡張・緩衝帯として使える</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>市場ポジション比較</strong></p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>クラス</th>
+<th>標準的な用地規模</th>
+<th>受電規模</th>
+<th>本敷地の該当</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ハイパースケール campus</td>
+<td>10ha以上</td>
+<td>50〜300MW</td>
+<td>● 面積は該当（平場11.1ha）。電力次第</td>
+</tr>
+<tr>
+<td>郊外型ミドル〜ラージ単棟</td>
+<td>2〜5ha</td>
+<td>10〜50MW</td>
+<td>● 該当</td>
+</tr>
+<tr>
+<td>エッジ／地域拠点</td>
+<td>0.3〜1ha</td>
+<td>1〜10MW</td>
+<td>✕ 商圏がない</td>
+</tr>
+</tbody>
+</table></div>
+<h3>4.2 インフラ4要素</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>要素</th>
+<th>重要度</th>
+<th>現状の把握内容と論点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>電力</strong></td>
+<td>■ 最重要</td>
+<td>関西電力送配電エリア。西約10kmの宍粟市山崎町に <strong>500kV 山崎開閉所</strong>（播磨中央線＝能勢〜山崎、山崎智頭線＝中国電力との連系）があり、相生市に500kV西播変電所、姫路臨海にLNG火力（姫路第一・第二。第一は195万kWの新設計画あり）。「電源に近い」素性は良い。ただし30〜100MW級のDCが繋ぐのは <strong>77kV または 154kV</strong> の変電所であり、その位置・空き容量・工事費負担金・供給時期が未確認。関電送配電は2026年6月に「供給可能エリアマップ」（数十〜数百MW向け）を、7月に154kV未満の空き容量一覧を更新しており、<strong>この2資料の机上確認が最初の一手</strong>。加えて関電は送電網増強に1,500億円超を投じる方針。</td>
+</tr>
+<tr>
+<td><strong>通信</strong></td>
+<td>■ 重要</td>
+<td>中国道に隣接し、姫路（NTT西日本の主要局）まで約20km。大阪・神戸へ経路の異なる2ルートのダークファイバーが引けるかをNTT西日本・KDDI・オプテージ等に照会。</td>
+</tr>
+<tr>
+<td><strong>水・冷却</strong></td>
+<td>● 概ね良好</td>
+<td>上水道あり（全寮制高校規模）。空冷・フリークーリング前提なら支障なし。夢前川流域の取水・井水は水冷併用時の代替。</td>
+</tr>
+<tr>
+<td><strong>災害安全性</strong></td>
+<td>▲ 要確認</td>
+<td>津波なし。夢前川の浸水想定区域は川沿い低地が中心で、丘陵上の本敷地は区域外の見込み（要地図確認）。<strong>山崎断層帯</strong>: 主部南東部（M7.3程度、30年確率ほぼ0〜0.01%）が安富町・夢前町の直下を通る。確率は低いが、DC事業者のサイト選定では断層直上・近接は減点要因。土砂災害警戒区域（周囲の斜面）、盛土規制法の規制区域、埋蔵文化財包蔵地の該当を確認。</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>電力が全てに優先する。</strong> 通信・水・災害はコストか設計で解ける論点だが、系統接続だけは解けない場合がある。受電可能容量（何MW・いつから・いくらで）が数字で出るまで、DC前提での価格形成・買い手打診は時期尚早。逆に、売主側で一次回答を取れれば本敷地の商品価値は一気に具体化する（土山と同じ結論）。</p>
+<p><strong>特別高圧受電の一般的なプロセスとリードタイム</strong>: 事前相談（数週間〜2か月）→ 接続検討申込（3〜6か月、可能容量・概算負担金・工期の回答）→ 工事費負担金契約〜系統工事（2〜5年）。全国的に系統増強を伴い長期化する傾向。</p>
+<h3>4.3 都市計画・許認可（クリティカルパス）</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>許認可</th>
+<th>本件での該当見込み</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用途地域・容積・建ぺい・高さ</td>
+<td><strong>指定なし</strong>（都市計画区域外）。建基法の集団規定（用途・容積・高さ・道路斜線・接道）は原則適用外。DCの高さ・危険物（発電機燃料）の制約が軽い。北茨城案件と同じ希少性。</td>
+</tr>
+<tr>
+<td>開発許可（都市計画法29条2項）</td>
+<td>都市計画区域外で <strong>1ha以上</strong> の開発行為は許可対象。姫路市は中核市のため市長許可。既存の建物敷地（既に宅地化）で区画形質の変更を伴わない建替えなら「開発行為に当たらない」整理ができる可能性があり、姫路市都市計画課と事前相談。運動場（雑種地扱いの可能性）の転用は開発行為に当たり得る。</td>
+</tr>
+<tr>
+<td>林地開発許可（森林法10条の2）</td>
+<td>山林22.7haが地域森林計画対象なら、1ha超の造成で兵庫県知事許可（太陽光は0.5ha超）。<strong>平場11.1haに計画を収めれば回避できる。</strong> 拡張時に初めて必要。</td>
+</tr>
+<tr>
+<td>盛土規制法</td>
+<td>規制区域の指定状況を確認。造成済平場の再整地なら影響は限定的。</td>
+</tr>
+<tr>
+<td>砂防・土砂災害</td>
+<td>周囲斜面の警戒区域該当を確認。</td>
+</tr>
+<tr>
+<td>環境影響評価（兵庫県条例）</td>
+<td>面積・用途の要件を確認（工場・事業場系の該当有無）。</td>
+</tr>
+<tr>
+<td>消防法・騒音</td>
+<td>非常用発電機の燃料貯蔵は危険物施設として消防協議。山林に囲まれ、近隣影響は小さい。</td>
+</tr>
+<tr>
+<td>建築確認</td>
+<td>都市計画区域外でも延床の大きい建物は確認申請要（法6条1項）。</td>
+</tr>
+</tbody>
+</table></div>
+<h3>4.4 市場性と行政</h3>
+<ul>
+<li><strong>誰が買うか</strong>: 有力はパワードシェル／ホールセール事業者（電力確保を条件に土地＋シェルを開発してテナントに貸す層）と、AI学習・バッチ処理特化型（低遅延要件が緩く、電力単価・用地費・災害耐性で選ぶ層）。面積上はハイパースケール系の候補にも乗るが、単独立地で商圏が薄いため「電力と価格」で判断する層に絞られる。</li>
+<li><strong>競合</strong>: 2026〜30年の国内DC新設・増設38件のうち大阪圏9件・地方13件。地方分散は苫小牧・石狩・湯沢・男鹿など「電源立地」に向かっている。兵庫県内のDCは神戸（NEC、KCC）・三田（SCSK）が中心で、播磨北部に既存クラスタはない。</li>
+<li><strong>補助・優遇</strong>: 経産省は2026年度から再エネ・原子力電源型DCへの立地補助（最大50%）を用意。総務省のDC地方分散基金、兵庫県産業立地条例（設備投資補助3〜10%・上限100億円、投資20億円以上）、姫路市企業立地促進制度（固定資産税・事業所税相当の奨励金。2025年10月に成長産業向けを拡充）が重なる。ただし兵庫県のGX戦略地域は「コンビナート等再生型」であり、DC集積型で選ばれた9道県（北海道・秋田・宮城・栃木・茨城・富山・香川・福岡・鹿児島）には入っていない。</li>
+<li><strong>行政の主導は未確認</strong>: 甲賀市が19haでDC市場調査を実施していた土山と違い、姫路市がDC誘致を能動的に進めている情報は見当たらない。市の企業誘致部門へのヒアリングで温度感を確認。</li>
+</ul>
+<hr />
+<h2>5. 収支（DC事業者の目線・ホールセール型）</h2>
+<p>共通前提: 土地16.5億円、仲介3%＋税、登録免許税・不動産取得税（評価 土地3.4億・建物1.0億）、固都税 616万円/年（都市計画税なし）、解体7.3億円、DC建屋・設備 <strong>20億円/MW</strong>（東京はUSD15.2/W≒23億円/MW。地方・低層で割引）、造成5億円、系統接続・負担金20億円、通信3億円、設計監理4%、予備費5%、受電待ち3年＋工期30か月、金利2%＋手数料0.5%、賃料 <strong>2.0万円/kW/月</strong>（電気代は実費転嫁。東京ホールセール2.5〜3.0万円の想定に対し地方は1.5〜2.2万円。要裏取り）、稼働90%、運営費20%、建物・償却資産税 capex比0.6%、キャップレート <strong>5.0%</strong>（東京DC 4.3〜4.5%に地方プレミアム）、開発利益15%。</p>
+<h3>5.1 規模別</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>郊外型ミドル 20MW</th>
+<th>郊外型ラージ 50MW</th>
+<th>キャンパス型 100MW</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>受電容量</td>
+<td>26MW</td>
+<td>65MW</td>
+<td>130MW</td>
+</tr>
+<tr>
+<td>土地・取得諸経費・解体</td>
+<td>24.9億円</td>
+<td>24.9億円</td>
+<td>24.9億円</td>
+</tr>
+<tr>
+<td>DC建屋・設備</td>
+<td>400億円</td>
+<td>1,000億円</td>
+<td>2,000億円</td>
+</tr>
+<tr>
+<td>造成・系統・通信・設計・予備費</td>
+<td>55億円</td>
+<td>118億円</td>
+<td>231億円</td>
+</tr>
+<tr>
+<td>固都税・金利</td>
+<td>16.8億円</td>
+<td>36.7億円</td>
+<td>93.0億円</td>
+</tr>
+<tr>
+<td><strong>総事業費</strong></td>
+<td><strong>497億円</strong></td>
+<td><strong>1,180億円</strong></td>
+<td><strong>2,349億円</strong></td>
+</tr>
+<tr>
+<td>年間賃料収入</td>
+<td>43.2億円</td>
+<td>108.0億円</td>
+<td>216.0億円</td>
+</tr>
+<tr>
+<td>NOI</td>
+<td>32.1億円</td>
+<td>80.3億円</td>
+<td>160.7億円</td>
+</tr>
+<tr>
+<td>NOI利回り（総事業費比）</td>
+<td>6.5%</td>
+<td>6.8%</td>
+<td>6.8%</td>
+</tr>
+<tr>
+<td>収益価格（cap 5.0%）</td>
+<td>642億円</td>
+<td>1,607億円</td>
+<td>3,215億円</td>
+</tr>
+<tr>
+<td>開発利益率</td>
+<td>29%</td>
+<td>36%</td>
+<td>37%</td>
+</tr>
+<tr>
+<td><strong>損益分岐賃料</strong>（利益15%確保）</td>
+<td>17,957円/kW/月</td>
+<td>17,106円</td>
+<td>17,029円</td>
+</tr>
+<tr>
+<td><strong>土地代の総事業費比</strong></td>
+<td><strong>3.3%</strong></td>
+<td><strong>1.4%</strong></td>
+<td><strong>0.7%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>→ 賃料2.0万円・cap5%・capex20億円/MWなら、どの規模でも開発利益は目標15%を上回る。<strong>土地代は事業費の1〜3%で、16.5億円が20億円でも12億円でも事業の成否は変わらない。</strong> 成否を決めるのは賃料（テナント）・capex・cap、そしてその前提である受電容量。</p>
+<h3>5.2 感度分析（50MW）</h3>
+<p>開発利益率（行=賃料 円/kW/月、列=capex 億円/MW、cap 5.0%）</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>賃料＼capex</th>
+<th>16億</th>
+<th>20億</th>
+<th>24億</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>15,000</td>
+<td>26%</td>
+<td>▲0%</td>
+<td>▲18%</td>
+</tr>
+<tr>
+<td>18,000</td>
+<td>53%</td>
+<td>22%</td>
+<td>0%</td>
+</tr>
+<tr>
+<td><strong>20,000</strong></td>
+<td>71%</td>
+<td><strong>36%</strong></td>
+<td>13%</td>
+</tr>
+<tr>
+<td>22,000</td>
+<td>89%</td>
+<td>51%</td>
+<td>25%</td>
+</tr>
+<tr>
+<td>25,000</td>
+<td>116%</td>
+<td>73%</td>
+<td>43%</td>
+</tr>
+</tbody>
+</table></div>
+<p>含み損益（億円。行=キャップレート、列=賃料、capex 20億円/MW）</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>cap＼賃料</th>
+<th>15,000</th>
+<th>18,000</th>
+<th>20,000</th>
+<th>22,000</th>
+<th>25,000</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.5%</td>
+<td>126</td>
+<td>414</td>
+<td>606</td>
+<td>798</td>
+<td>1,086</td>
+</tr>
+<tr>
+<td><strong>5.0%</strong></td>
+<td>▲5</td>
+<td>254</td>
+<td><strong>427</strong></td>
+<td>600</td>
+<td>859</td>
+</tr>
+<tr>
+<td>5.5%</td>
+<td>▲112</td>
+<td>124</td>
+<td>281</td>
+<td>438</td>
+<td>674</td>
+</tr>
+<tr>
+<td>6.0%</td>
+<td>▲201</td>
+<td>15</td>
+<td>159</td>
+<td>303</td>
+<td>519</td>
+</tr>
+</tbody>
+</table></div>
+<p>→ 賃料が1.5万円まで下がるか、capexが24億円/MWまで上がると利益が消える。<strong>DC事業のリスクは土地ではなく「賃料×建設費×出口利回り」にある。</strong></p>
+<h3>5.3 残余法: DC事業が土地に払える理論上限（開発利益15%控除後）</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>ケース</th>
+<th>土地価格上限</th>
+<th>円/㎡</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>郊外型ミドル 20MW（賃料2.0万）</td>
+<td>69.8億円</td>
+<td>20,781</td>
+</tr>
+<tr>
+<td>郊外型ラージ 50MW（賃料2.0万）</td>
+<td>205億円</td>
+<td>61,121</td>
+</tr>
+<tr>
+<td>キャンパス型 100MW（賃料2.0万）</td>
+<td>397億円</td>
+<td>118,278</td>
+</tr>
+<tr>
+<td>50MW（賃料1.8万）</td>
+<td>74.8億円</td>
+<td>22,282</td>
+</tr>
+<tr>
+<td>50MW（賃料1.5万）</td>
+<td>成立せず</td>
+<td>－</td>
+</tr>
+<tr>
+<td>50MW（賃料2.0万・cap6.0%・capex24億）</td>
+<td>成立せず</td>
+<td>－</td>
+</tr>
+</tbody>
+</table></div>
+<p>→ 電力とテナントが確保できる前提なら、DC事業者は理論上16.5億円の数倍を払える。<strong>「DC-ready」（受電容量と許認可の目処が付いた状態）の土地としての実勢は、有効面積ベースで2〜5万円/㎡（平場11haで22〜55億円）が国内地方案件の目安</strong>であり、受電確認を経た転売・共同事業の出口はこの水準を想定する。ただしこれは3〜5年の時間と、電力回答が黒で終わるリスクを負った先の話である。</p>
+<hr />
+<h2>6. DC以外の出口から見た土地の実力値</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>出口</th>
+<th>土地建物の価格</th>
+<th>年間NOI</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>現況一括賃貸（企業研修所・スポーツ合宿・通信制高校スクーリング拠点・技能実習研修寮）</td>
+<td><strong>2.8億円</strong></td>
+<td>0.3億円</td>
+<td>開発許可不要。賃料4,000万円/年・cap7%・貸出前修繕2億円。5年空き家の建物状態が前提</td>
+</tr>
+<tr>
+<td>系統用蓄電池（運動場の一部2.5haを地代800円/㎡）</td>
+<td>2.3億円</td>
+<td>0.1億円</td>
+<td>特高接続が前提で、DCと同じ電力論点。兵庫県は調整区域での許可基準未整備だが本件は区域外</td>
+</tr>
+<tr>
+<td>太陽光（運動場4.2haの地代200円/㎡・建物残置）</td>
+<td>0.2億円</td>
+<td>0.0億円</td>
+<td>地代が固都税を辛うじて上回る水準。解体して全面に敷くと解体費で赤字</td>
+</tr>
+<tr>
+<td>産業用地分譲（平場11haを工場・倉庫用地に造成分譲）</td>
+<td><strong>成立せず</strong>（▲3.1億円）</td>
+<td>－</td>
+<td>分譲単価1万円/㎡×11haの売上11億円を、解体7.3億円・造成4.4億円・利益15%が食い尽くす。都市計画区域外・IC10分・丘陵地では単価が伸びない</td>
+</tr>
+<tr>
+<td>山林・現況保有</td>
+<td>0.8億円</td>
+<td>▲0.1億円</td>
+<td>素地価格</td>
+</tr>
+</tbody>
+</table></div>
+<p>→ <strong>DCが成立しなければ、この土地の実力は1〜3億円。</strong> 16.5億円はDC（または特高接続を前提とする電力多消費用途）が成立する場合にだけ正当化される。解体費7.3億円が全ての非DC出口の足を引っ張っており、逆に「建物を壊さず使う」現況賃貸が非DCでは最善になる。</p>
+<hr />
+<h2>7. 保有コストと時間リスク</h2>
+<p>16.5億円で取得し、受電・許認可の一次回答を待つ場合（金利2%・固都税616万円・管理費500万円/年）:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>経過</th>
+<th>年額</th>
+<th>累計（取得諸経費含む）</th>
+<th>簿価合計</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1年目</td>
+<td>0.4億円</td>
+<td>1.6億円</td>
+<td>18.1億円</td>
+</tr>
+<tr>
+<td>3年目</td>
+<td>0.4億円</td>
+<td>2.5億円</td>
+<td>19.0億円</td>
+</tr>
+<tr>
+<td>5年目</td>
+<td>0.4億円</td>
+<td>3.4億円</td>
+<td>19.9億円</td>
+</tr>
+</tbody>
+</table></div>
+<p>保有コスト自体は年0.4億円と軽い（都市計画税がなく、評価が低い）。問題はコストではなく、<strong>5年待って電力が黒だった場合に19.9億円の簿価に対し出口が1〜3億円しかないこと</strong>。この非対称性が、現物取得ではなく停止条件付き・オプション型を推奨する理由である。</p>
+<hr />
+<h2>8. 推奨戦略と交渉方針</h2>
+<ol>
+<li><strong>現物での投機取得はしない。</strong> 受電容量の一次回答が出る前に16.5億円を払う合理性はない。</li>
+<li><strong>売主に「受電事前相談」を求める。</strong> 関電送配電への事前相談（無償・数週間〜2か月）を売主側で実施し、一次見解（供給可否・概算容量・時期）を開示することを取引条件にする。土山と同じ条件提示。</li>
+<li><strong>停止条件付き契約／オプション契約で押さえる。</strong> 手付・オプション料は小さく（数千万円規模）、停止条件は「接続検討の回答で受電30MW以上（IT 20MW以上）・供給開始5年以内・負担金○億円以内」「姫路市との事前協議で開発許可の目処」。期間は接続検討の回答期間に合わせ6〜12か月。</li>
+<li><strong>買い手（パワードシェル／AI特化型／通信系）は#2の一次回答と並走で打診し、数字が出た段階で本格提案に進む。</strong> 弊社の立ち位置は（a）客付共同仲介、（b）DC事業者と組んだ取得・転売、（c）オプション権の譲渡の3通りがあり、一次回答の中身で選ぶ。</li>
+<li><strong>価格</strong>: DC成立が確認できれば16.5億円は総事業費の1〜3%で、値引き交渉より「引渡し条件（解体の負担、境界、残置物、地中障害）」の整理を優先する。DC不成立の現物取得なら <strong>5〜8億円</strong> が上限（非DC出口2〜3億円＋電力オプション価値）。</li>
+<li><strong>解体費7.3億円の扱い</strong>: 売主負担での解体（更地渡し）か、解体費相当の値引きかを条件化する。アスベスト調査結果次第で上振れするため、調査は契約前に実施。</li>
+<li><strong>代替案</strong>: 短期の出口は現況一括賃貸（研修・合宿・学校用途）。蓄電池・太陽光は電力論点が同じなので、DCの受電照会と同時に検討できる。</li>
+</ol>
+<hr />
+<h2>9. リスク（重大度順）</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>リスク項目</th>
+<th>重大度</th>
+<th>内容と対応方針</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>系統接続（電力）</td>
+<td>高</td>
+<td>77/154kV変電所の位置・空き容量・負担金・リードタイムが全て未確認。→ 売主側で事前相談、供給可能エリアマップ・空き容量一覧の机上確認を弊社で並行</td>
+</tr>
+<tr>
+<td>2</td>
+<td>資料の鮮度・売却状況</td>
+<td>高</td>
+<td>概要書は2022年、内訳資料は1994年。既に売却済み・価格改定・一部解体の可能性。→ 仲介へ即確認</td>
+</tr>
+<tr>
+<td>3</td>
+<td>通信ファイバー</td>
+<td>高</td>
+<td>冗長2ルートの引込可否・負担が未確認。→ キャリア照会。判明までワーストケースで見積る</td>
+</tr>
+<tr>
+<td>4</td>
+<td>既存建物・解体・環境</td>
+<td>中</td>
+<td>27,500㎡のRC建物、アスベスト、浄化槽・受水槽・杭、残置物。解体費7.3億円は上振れ余地あり。→ 契約前にアスベスト調査、解体見積2社以上、売主負担の交渉</td>
+</tr>
+<tr>
+<td>5</td>
+<td>市場性・出口</td>
+<td>中</td>
+<td>単独立地・商圏なし。買い手はパワードシェル／AI特化に限られ、DC不成立時の出口価値は1〜3億円。→ 停止条件付きで時間リスクを売主と分担</td>
+</tr>
+<tr>
+<td>6</td>
+<td>断層・災害</td>
+<td>中</td>
+<td>山崎断層帯直下。確率は低いがDC事業者の選定基準で減点。土砂災害警戒区域・盛土規制の該当。→ 県指定図・重ねるハザードマップで机上確認、DC事業者の基準を事前ヒアリング</td>
+</tr>
+<tr>
+<td>7</td>
+<td>許認可</td>
+<td>中</td>
+<td>開発許可の要否（区画形質の変更の範囲）、林地開発許可（拡張時）、環境アセス条例の該当。→ 姫路市・兵庫県ヒアリングで確定し、許認可取得を売主責任にできるか協議</td>
+</tr>
+<tr>
+<td>8</td>
+<td>境界・面積</td>
+<td>中</td>
+<td>33.6haの山林で確定測量は非現実的。登記面積取引・境界非明示の条件整理。→ 平場部分のみ境界確認、山林は公図・地籍調査の有無を確認</td>
+</tr>
+<tr>
+<td>9</td>
+<td>行政の姿勢</td>
+<td>低〜中</td>
+<td>姫路市のDC誘致は未確認。県のGX戦略地域はDC型ではない。→ 市企業誘致部門ヒアリング、経産省・総務省のDC地方分散補助の適用可能性を整理</td>
+</tr>
+</tbody>
+</table></div>
+<h1>1〜#3は「確認すれば白黒がつく」性質で確認コストは僅少。取得判断の前にこの3点の一次回答を揃えることが、本件で最も費用対効果の高いリスク低減策（土山と同じ整理）。#4〜#9は取引条件（売主責任範囲・価格・決済スキーム）で配分できる。</h1>
+<hr />
+<h2>10. デューデリジェンス・ロードマップ</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>アクション</th>
+<th>実施主体</th>
+<th>優先度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>仲介（五軒邸）へ売却状況・価格・現況（建物の残存、解体の有無）・売主の確認</td>
+<td>弊社</td>
+<td>最優先</td>
+</tr>
+<tr>
+<td>2</td>
+<td>関電送配電「供給可能エリアマップ」（2026-06-24）と「154kV未満 空き容量一覧」（2026-07-29）で最寄り変電所と空き容量を机上確認。系統マッピング（154kV以上）で山崎開閉所・播磨中央線の経路を確認</td>
+<td>弊社</td>
+<td>最優先</td>
+</tr>
+<tr>
+<td>3</td>
+<td>関電送配電への事前相談（受電希望 40〜130MW・地点提示）を売主側に要請。一次見解の開示を取引条件化</td>
+<td>売主・弊社</td>
+<td>最優先</td>
+</tr>
+<tr>
+<td>4</td>
+<td>姫路市ヒアリング（都市計画課: 開発許可の要否と区画形質変更の範囲／産業振興: 企業立地促進制度とDC誘致の姿勢）。兵庫県（農林: 林地開発の対象森林か／企業誘致課: 産業立地条例の適用）</td>
+<td>弊社</td>
+<td>高</td>
+</tr>
+<tr>
+<td>5</td>
+<td>通信キャリア（NTT西日本・KDDI・オプテージ）へダークファイバー提供可否・概算照会</td>
+<td>弊社／買主</td>
+<td>高</td>
+</tr>
+<tr>
+<td>6</td>
+<td>ハザード机上確認: 土砂災害警戒区域、夢前川浸水想定、盛土規制区域、山崎断層帯との位置関係、埋蔵文化財</td>
+<td>弊社</td>
+<td>中</td>
+</tr>
+<tr>
+<td>7</td>
+<td>現地調査: 平場の実勢面積・高低差・進入路（7m道路の幅員実測・中国道側道との関係）、既存受電設備、上下水の系統、建物の劣化状況</td>
+<td>弊社</td>
+<td>中</td>
+</tr>
+<tr>
+<td>8</td>
+<td>アスベスト調査・解体見積（2社以上）、土壌（ゴルフ練習場・クリーニング棟・ガス庫・浄化槽の履歴）</td>
+<td>売主／弊社</td>
+<td>中</td>
+</tr>
+<tr>
+<td>9</td>
+<td>10km・30km圏人口の集計（OSM人口データ、八尾・エッジ調査と同じ手法）で商圏を数値化</td>
+<td>弊社</td>
+<td>中</td>
+</tr>
+<tr>
+<td>10</td>
+<td>ターゲット事業者（パワードシェル／AI特化型／通信系）への初期打診 — #3の一次回答取得後</td>
+<td>弊社／買主</td>
+<td>後続</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>進め方の要諦</strong>: 受電容量の一次回答（#3）が出る前に買い手打診（#10）を先行させると、「何MW取れるのか」に答えられず商談が止まる。#1〜#5を並行で走らせ、数字が揃った段階で事業者打診に進む二段構え。</p>
+<hr />
+<h2>11. 前提の根拠（出典）</h2>
+<ul>
+<li>物件情報: 有限会社五軒邸「物件概要書」「配置図」「基礎調査用資料（H6.4.26）」（<code>source/姫路市夢前町戸倉_日生学園跡地_物件概要書.pdf</code>）</li>
+<li>学校の沿革・休校: <a href="https://jiyuugaoka.ed.jp/">自由ヶ丘高等学校 公式</a>、<a href="https://ja.wikipedia.org/wiki/%E8%87%AA%E7%94%B1%E3%83%B6%E4%B8%98%E9%AB%98%E7%AD%89%E5%AD%A6%E6%A0%A1_(%E5%85%B5%E5%BA%AB%E7%9C%8C)">自由ヶ丘高等学校 (兵庫県) - Wikipedia</a></li>
+<li>都市計画区域: <a href="https://www.city.himeji.lg.jp/sangyo/0000003331.html">姫路市 都市計画区域、市街化区域および市街化調整区域</a>（旧夢前町・安富町・家島町の全域を都市計画区域外）、<a href="https://www.city.himeji.lg.jp/sangyo/0000006921.html">姫路市 都市計画法の開発許可制度</a>、<a href="https://takuchi-kaihatsu.com/toshikeikaku-kuikigai-kaihatsu/">都市計画区域外の開発許可（1ha基準）</a></li>
+<li>林地開発許可: <a href="https://web.pref.hyogo.lg.jp/nk22/af17_000000006.html">兵庫県 林地開発許可制度について</a>、<a href="https://www.rinya.maff.go.jp/j/tisan/tisan/attach/pdf/con_4_2-10.pdf">林野庁 太陽光の面積基準（0.5ha）</a>、<a href="https://web.pref.hyogo.lg.jp/ks29/press/kaihatu_chikudenchi.html">兵庫県 開発許可制度における系統用蓄電池の取扱い</a></li>
+<li>電力: <a href="https://www.kansai-td.co.jp/consignment/welcome-zone-map/">関西電力送配電 ウェルカムゾーンマップ</a>、<a href="https://www.kansai-td.co.jp/consignment/welcome-zone-map/pdf/area_map.pdf">供給可能エリアマップ（2026-06-24）</a>、<a href="https://www.kansai-td.co.jp/consignment/disclosure/distribution-equipment/mapping.html">マッピング（154kV未満）</a>、<a href="https://www.kansai-td.co.jp/interchange/takusou/pdf/154kv_less_space.pdf">空き容量一覧（2026-07-29）</a>、<a href="https://www.kansai-td.co.jp/consignment/disclosure/pdf/01_roop_2024_1.pdf">送電線インピーダンス一覧（播磨線 北摂〜西播、播磨中央線 能勢〜山崎）</a>、<a href="https://www.nikkei.com/article/DGXZQOUF278ST0X20C25A6000000/">日経 関西電力が送電網に1,500億円投資</a>、<a href="https://www.kepco.co.jp/energy_supply/energy/thermal_power/plant/himejilng.html">関西電力 姫路LNG基地</a>、<a href="https://kansai-sanpo.com/kepco-lng2026/">姫路第一発電所 新設計画 195万kW</a> ※関電送配電のサイトは本セッションの環境から直接取得できず、検索結果の要約で確認。数値の本文確認が必要</li>
+<li>交通: <a href="https://corp.w-nexco.co.jp/corporate/release/kansai/h27/0805a/">NEXCO西日本 夢前スマートIC開通（2015-09-26）</a>、<a href="https://www.city.himeji.lg.jp/sangyo/0000001457.html">姫路市 夢前スマートインターチェンジ</a></li>
+<li>災害: <a href="https://www.jishin.go.jp/regional_seismicity/rs_katsudanso/yamasaki/">地震本部 山崎断層帯</a>、<a href="https://www.city.himeji.lg.jp/faq/faq_detail.php?frmId=202">姫路市FAQ 活断層（山崎断層帯が安富町・夢前町直下）</a>、<a href="https://www.city.himeji.lg.jp/anzen/0000014098.html">姫路市 各種ハザードマップ</a></li>
+<li>地価: <a href="https://tochidai.info/area/yumesakicho/">tochidai.info 夢前町（2025年 基準地価平均 20,900円/㎡）</a></li>
+<li>補助・行政: <a href="https://www.city.himeji.lg.jp/sangyo/0000031184.html">姫路市 企業立地促進制度</a>、<a href="http://web.pref.hyogo.lg.jp/sr03/sr03_000000002.html">兵庫県 産業立地条例に基づく立地支援</a>、<a href="https://web.pref.hyogo.lg.jp/sr07/press/20260424.html">兵庫県 GX戦略地域（コンビナート等再生型）有望地域に選定</a>、<a href="https://www.meti.go.jp/press/2026/04/20260424007/20260424007.html">経産省 GX戦略地域 有望地域の選定</a>、<a href="https://www.nikkei.com/article/DGXZQOUA236I60T21C25A2000000/">日経 再エネ・DC集積支援（最大50%補助）</a>、<a href="https://www.soumu.go.jp/menu_news/s-news/01kiban04_02000267.html">総務省 DC等の地方分散によるデジタルインフラ強靭化事業</a></li>
+<li>DC市場・コスト: <a href="https://www.nikkeibp.co.jp/atcl/newsrelease/corp/20260619/">日経クロステック 2026年以降のDC新設・増設 24社38件</a>、<a href="https://www.nikkei.com/article/DGXZQOUC253MX0V21C25A1000000/">日経 DC建設費 東京が世界一（USD15.2/W）</a>、<a href="https://reports.turnerandtownsend.com/data-centre-construction-cost-index-2025-japanese/data-centre-cost-trends">Turner &amp; Townsend DC建設コスト指数 2025</a>、<a href="https://www.cushmanwakefield.com/ja-jp/japan/insights/apac-data-centre-construction-cost-guide">Cushman &amp; Wakefield APAC DC建設コストガイド 2026</a></li>
+<li>弊社内部資料（Google Drive）: 「土山町山中 データセンター適地調査」（2026-08-19）、「全国データセンター誘致案件 自治体公募3件比較」（2026-08-24。PDG TY1の原単位 約16億円/MW・29MW/ha）、「エッジDCの距離基準 一次情報まとめ」（2026-08-23。10km圏100万人基準）、「八尾市 DC用地スクリーニング」（2026-08-19）、国交省 国住指第4933号（コンテナ型DCの建基法上の取扱い）</li>
+</ul>
+<p>※ 本レポートは公開情報・売主提示資料・弊社の過去調査に基づく机上検討であり、現地調査・行政協議・電力会社への照会は未実施。賃料・capex・キャップレートは弊社の想定値で、DC事業者・建設会社・鑑定の裏付けが必要。計算モデルは <code>model/himeji_dc.py</code>、数式入りの試算表は <code>output/姫路夢前町_日生学園跡地_収支試算.xlsx</code>。</p>
+</div></body></html>
