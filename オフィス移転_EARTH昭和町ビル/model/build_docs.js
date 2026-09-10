@@ -4,19 +4,42 @@ const {
   AlignmentType, WidthType, BorderStyle, ShadingType, PageBreak, TabStopType,
 } = require("docx");
 
-// ---------- helpers ----------
+// ---------- helpers (docx + parallel HTML emission for PDF) ----------
+const { execFileSync } = require("child_process");
+const path = require("path");
 const FONT = { ascii: "ＭＳ 明朝", hAnsi: "ＭＳ 明朝", eastAsia: "ＭＳ 明朝", cs: "ＭＳ 明朝" };
 const GOTHIC = { ascii: "ＭＳ ゴシック", hAnsi: "ＭＳ ゴシック", eastAsia: "ＭＳ ゴシック", cs: "ＭＳ ゴシック" };
 const SZ = 21; // 10.5pt
 
+let htmlBuf = [];
+const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const tw = (v) => (v / 20) + "pt"; // twips -> pt
+
 const run = (text, opts = {}) => new TextRun({ text, font: opts.gothic ? GOTHIC : FONT, size: opts.size || SZ, bold: opts.bold, underline: opts.underline ? {} : undefined });
 
-const P = (text, opts = {}) => new Paragraph({
-  alignment: opts.align || AlignmentType.LEFT,
-  spacing: { before: opts.before ?? 0, after: opts.after ?? 100, line: opts.line ?? 320 },
-  indent: opts.indent,
-  children: Array.isArray(text) ? text : [run(text, opts)],
-});
+const P = (text, opts = {}) => {
+  const st = [];
+  st.push(`text-align:${opts.align === AlignmentType.CENTER ? "center" : opts.align === AlignmentType.RIGHT ? "right" : "left"}`);
+  st.push(`margin:${tw(opts.before ?? 0)} 0 ${tw(opts.after ?? 100)} 0`);
+  st.push(`line-height:${((opts.line ?? 320) / 240).toFixed(2)}`);
+  st.push(`font-size:${(opts.size || SZ) / 2}pt`);
+  if (opts.bold) st.push("font-weight:bold");
+  if (opts.gothic) st.push("font-family:'IPAGothic','IPAPGothic',sans-serif");
+  if (opts.indent) {
+    const ind = opts.indent;
+    if (ind.left) st.push(`padding-left:${tw(ind.left)}`);
+    if (ind.hanging) st.push(`text-indent:-${tw(ind.hanging)}`);
+    else if (ind.firstLine) st.push(`text-indent:${tw(ind.firstLine)}`);
+  }
+  const t = Array.isArray(text) ? "" : text;
+  htmlBuf.push(`<p style="${st.join(";")}">${t === "" ? "&nbsp;" : esc(t)}</p>`);
+  return new Paragraph({
+    alignment: opts.align || AlignmentType.LEFT,
+    spacing: { before: opts.before ?? 0, after: opts.after ?? 100, line: opts.line ?? 320 },
+    indent: opts.indent,
+    children: Array.isArray(text) ? text : [run(text, opts)],
+  });
+};
 const Title = (t) => P(t, { align: AlignmentType.CENTER, size: 28, bold: true, before: 200, after: 400, gothic: true });
 const Sub = (t) => P(t, { align: AlignmentType.CENTER, size: 22, after: 300 });
 const H = (t) => P(t, { bold: true, before: 240, after: 80, gothic: true });
@@ -24,7 +47,7 @@ const Body = (t) => P(t, { indent: { firstLine: 210 } });
 const Item = (t, level = 1) => P(t, { indent: { left: 420 * level, hanging: 420 } });
 const Right = (t) => P(t, { align: AlignmentType.RIGHT });
 const Blank = () => P("", { after: 0 });
-const Break = () => new Paragraph({ children: [new PageBreak()] });
+const Break = () => { htmlBuf.push('<div style="page-break-after:always"></div>'); return new Paragraph({ children: [new PageBreak()] }); };
 
 const border = { style: BorderStyle.SINGLE, size: 4, color: "000000" };
 const borders = { top: border, bottom: border, left: border, right: border };
@@ -38,6 +61,15 @@ function Tbl(headers, rows, widths, opts = {}) {
     margins: { top: 60, bottom: 60, left: 100, right: 100 },
     children: [new Paragraph({ alignment: align || AlignmentType.LEFT, spacing: { after: 0, line: 280 }, children: [run(t, { bold: head, size: opts.size || 20 })] })],
   });
+  // HTML
+  const alignCss = (a) => a === AlignmentType.CENTER ? "center" : a === AlignmentType.RIGHT ? "right" : "left";
+  const fs = (opts.size || 20) / 2;
+  let h = `<table style="border-collapse:collapse;width:${(total / 9060 * 100).toFixed(1)}%;table-layout:fixed;font-size:${fs}pt;line-height:1.17;margin:0 0 5pt 0"><colgroup>`;
+  h += widths.map(w => `<col style="width:${(w / total * 100).toFixed(2)}%">`).join("") + "</colgroup>";
+  if (headers) h += "<tr>" + headers.map(x => `<th style="border:0.5pt solid #000;background:#e7e6e6;padding:3pt 5pt;text-align:center;font-weight:bold">${esc(x)}</th>`).join("") + "</tr>";
+  for (const r of rows) h += "<tr>" + r.map((c, i) => `<td style="border:0.5pt solid #000;padding:3pt 5pt;text-align:${alignCss(opts.aligns ? opts.aligns[i] : null)};vertical-align:top">${c === "" ? "&nbsp;" : esc(c)}</td>`).join("") + "</tr>";
+  h += "</table>";
+  htmlBuf.push(h);
   const hdr = headers ? [new TableRow({ tableHeader: true, children: headers.map((h, i) => cell(h, widths[i], true, AlignmentType.CENTER)) })] : [];
   return new Table({
     width: { size: total, type: WidthType.DXA },
@@ -54,19 +86,39 @@ function Sig(label, lines) {
 }
 
 function makeDoc(children) {
-  return new Document({
+  const doc = new Document({
     styles: { default: { document: { run: { font: FONT, size: SZ } } } },
     sections: [{
       properties: { page: { margin: { top: 1418, bottom: 1418, left: 1418, right: 1418 } } },
       children,
     }],
   });
+  doc.__html = htmlBuf.join("\n");
+  htmlBuf = [];
+  return doc;
 }
 
+const CHROMIUM = process.env.CHROMIUM || "/opt/pw-browsers/chromium";
 async function save(doc, name) {
   const buf = await Packer.toBuffer(doc);
   fs.writeFileSync(name, buf);
   console.log("wrote", name);
+  if (process.env.NO_PDF) return;
+  const base = name.replace(/\.docx$/, "");
+  const html = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>${esc(base)}</title><style>
+@page{size:A4;margin:25mm}
+body{font-family:'IPAMincho','IPAPMincho','ＭＳ 明朝',serif;font-size:10.5pt;color:#000;margin:0}
+p{word-break:break-all;overflow-wrap:anywhere}
+table{page-break-inside:auto} tr{page-break-inside:avoid}
+</style></head><body>${doc.__html}</body></html>`;
+  fs.mkdirSync("pdf", { recursive: true });
+  const htmlPath = path.resolve("pdf", base + ".html");
+  const pdfPath = path.resolve("pdf", base + ".pdf");
+  fs.writeFileSync(htmlPath, html);
+  try {
+    execFileSync(CHROMIUM, ["--headless=new", "--no-sandbox", "--disable-gpu", "--no-pdf-header-footer", `--print-to-pdf=${pdfPath}`, "file://" + htmlPath], { stdio: "pipe" });
+    console.log("wrote", pdfPath);
+  } catch (e) { console.error("pdf failed for", name, String(e.stderr || e).slice(-300)); }
 }
 
 // ---------- shared facts ----------
