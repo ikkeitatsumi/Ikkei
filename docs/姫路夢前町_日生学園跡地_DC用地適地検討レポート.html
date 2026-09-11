@@ -29,7 +29,7 @@ code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.9em;bac
 </style></head>
 <body><div class="page">
 <h1>姫路市夢前町戸倉 日生学園跡地（33.6ha）データセンター用地 適地・事業性検討レポート</h1>
-<p><span class="lead">作成日: 2026-09-10　　対象: 兵庫県姫路市夢前町戸倉566番 自由ヶ丘高等学校（旧 日生学園第三高等学校）跡地　　募集価格: 16億5,000万円（坪16,238円・㎡4,912円）
+<p><span class="lead">作成日: 2026-09-10（追加調査 2026-09-11）　　対象: 兵庫県姫路市夢前町戸倉566番 自由ヶ丘高等学校（旧 日生学園第三高等学校）跡地　　募集価格: 16億5,000万円（坪16,238円・㎡4,912円）
 </span>参照フレーム: 弊社「土山町山中 データセンター適地調査」（2026-08-19）、「全国DC誘致案件 自治体公募3件比較」（2026-08-24）、「エッジDCの距離基準」（2026-08-23）</p>
 <hr />
 <h2>0. 資料の鮮度についての注記（最初に確認すべきこと）</h2>
@@ -57,7 +57,7 @@ code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.9em;bac
 <tr>
 <td><strong>電力（系統接続）</strong></td>
 <td>■ 未確認・最重要</td>
-<td>関電エリア。500kV幹線（山崎開閉所・播磨中央線・山崎智頭線）が西約10kmにあり、姫路臨海にはLNG火力（姫路第一 195万kW新設計画）がある「電源に近い」立地。ただし <strong>DCが実際に繋ぐ77kV／154kV変電所の位置・空き容量・負担金は未確認</strong>。ここが白なら前進、黒なら終了。</td>
+<td>関電エリア。500kV幹線（山崎開閉所・播磨中央線・山崎智頭線）が西約10kmにあり、姫路臨海にはLNG火力（姫路第一を195万kW級に更新、2029年度着工・2033年度運転開始）がある「電源に近い」立地。ただし <strong>DCが実際に繋ぐ77kV／154kV変電所の位置・空き容量・負担金は未確認</strong>。ここが白なら前進、黒なら終了。既存校舎を使う高圧受電（2,000kW未満）の小規模GPU DCなら、この確認を待たずに動ける（§4.5）。</td>
 </tr>
 <tr>
 <td><strong>通信</strong></td>
@@ -77,7 +77,7 @@ code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.9em;bac
 <tr>
 <td><strong>災害安全性</strong></td>
 <td>▲ 要確認</td>
-<td>内陸・丘陵（津波なし）。ただし <strong>山崎断層帯が夢前町の直下を通る</strong>（主部南東部 M7.3程度、30年確率ほぼ0〜0.01%）。土砂災害警戒区域・盛土規制区域の該当を机上確認。</td>
+<td>内陸・丘陵（津波なし）。ただし <strong>山崎断層帯が夢前町の直下を通る</strong>（本敷地が属する主部南東部は M7.3程度・30年確率ほぼ0〜0.01%。隣接する主部北西部は M7.7程度・0.1〜1%で「相対的に高い」グループ。全体連動なら M8.0程度）。土砂災害警戒区域・盛土規制区域の該当を机上確認。</td>
 </tr>
 <tr>
 <td><strong>都市計画・許認可</strong></td>
@@ -92,17 +92,22 @@ code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.9em;bac
 <tr>
 <td><strong>行政の姿勢</strong></td>
 <td>▲ 中立</td>
-<td>姫路市は企業立地促進制度を2025年10月に拡充（成長産業向け）。兵庫県はGX戦略地域の有望地域だが「コンビナート等再生型」で、DC集積型ではない。DC誘致を市が主導している形跡は現時点で見当たらない。</td>
+<td>姫路市は企業立地促進制度（固定資産税・事業所税相当の奨励金）を2025年10月に拡充。兵庫県の産業立地条例は成長産業5分野（新エネ・環境、航空、ロボット、健康医療、半導体）を厚くするがDCは明記されておらず、GX戦略地域も「コンビナート等再生型」でDC集積型ではない。DC誘致を市・県が主導している形跡は現時点で見当たらない。</td>
 </tr>
 <tr>
 <td><strong>価格（16.5億円）</strong></td>
 <td>DC成立なら安い／不成立なら高い</td>
-<td>DC事業者にとって土地代は <strong>総事業費の0.7〜3.3%</strong>（20〜100MW）で価格は論点にならない。一方、DC以外の出口（現況一括賃貸・蓄電池・太陽光・産業用地）から見た土地建物の実力値は <strong>1〜3億円</strong> で、16.5億円は3〜6倍。<strong>「電力が取れるか」に全額を賭ける価格</strong>である。</td>
+<td>DC事業者にとって土地代は <strong>総事業費の0.7〜3.3%</strong>（20〜100MW）で価格は論点にならない。一方、DC以外の出口（現況一括賃貸・校舎GPU DC・蓄電池・太陽光・産業用地）から見た土地建物の実力値は <strong>1〜5億円</strong> で、16.5億円は3〜10倍。公有廃校の売却事例は数百円/㎡台であり、4,912円/㎡はその10倍。<strong>「電力が取れるか」に全額を賭ける価格</strong>である。</td>
+</tr>
+<tr>
+<td><strong>賃料水準（DC収支の急所）</strong></td>
+<td>▲ 地方賃料では薄い</td>
+<td>弊社基準ケースは2.0万円/kW/月だが、Cushman &amp; Wakefieldの建設コストガイド（2025）はコロケーション賃料を東京等で120ドル、その他地域で <strong>100ドル/kW/月（約1.5万円）</strong> と置く。損益分岐賃料は約1.7万円で、<strong>標準的なホールセール賃料では本件のDC収支は成立しない</strong>。成立させるのはAI・GPU用途のプレミアム賃料か、ハイパースケーラーのビルド・トゥ・スーツ。</td>
 </tr>
 <tr>
 <td><strong>推奨</strong></td>
-<td><strong>停止条件付き／オプション型で押さえる</strong></td>
-<td>現物での投機取得は推奨しない。①売主側で関電送配電への受電事前相談を実施させ、②接続検討で受電30MW以上・5年以内の一次回答が出ることを停止条件に、③DC事業者・パワードシェル事業者と組んで取得する二段構え。電力が確認できる前に16.5億円を払う理由はない。現物で買うなら <strong>5〜8億円</strong>（DC以外の出口価値＋オプション価値）が上限。</td>
+<td><strong>段階的に押さえる</strong></td>
+<td>現物での投機取得は推奨しない。①売主側で関電送配電への受電事前相談を実施させ、②接続検討で受電30MW以上・5年以内の一次回答が出ることを停止条件に、③DC事業者・パワードシェル事業者と組んで取得する二段構え。並行して、<strong>既存校舎を高圧受電のままGPU DCに転用する「Phase 0」</strong>（ハイレゾが玄海町・綾川町の廃校で実施している形）を運営事業者に打診し、特高の回答を待つ間の土地の稼働と実績づくりに使う。電力が確認できる前に16.5億円を払う理由はない。現物で買うなら <strong>5〜8億円</strong>（DC以外の出口価値＋オプション価値）が上限。</td>
 </tr>
 </tbody>
 </table></div>
@@ -346,7 +351,7 @@ code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.9em;bac
 <tr>
 <td><strong>電力</strong></td>
 <td>■ 最重要</td>
-<td>関西電力送配電エリア。西約10kmの宍粟市山崎町に <strong>500kV 山崎開閉所</strong>（播磨中央線＝能勢〜山崎、山崎智頭線＝中国電力との連系）があり、相生市に500kV西播変電所、姫路臨海にLNG火力（姫路第一・第二。第一は195万kWの新設計画あり）。「電源に近い」素性は良い。ただし30〜100MW級のDCが繋ぐのは <strong>77kV または 154kV</strong> の変電所であり、その位置・空き容量・工事費負担金・供給時期が未確認。関電送配電は2026年6月に「供給可能エリアマップ」（数十〜数百MW向け）を、7月に154kV未満の空き容量一覧を更新しており、<strong>この2資料の机上確認が最初の一手</strong>。加えて関電は送電網増強に1,500億円超を投じる方針。</td>
+<td>関西電力送配電エリア。西約10kmの宍粟市山崎町に <strong>500kV 山崎開閉所</strong>（播磨中央線＝能勢〜山崎、山崎智頭線＝中国電力との連系）があり、相生市に500kV西播変電所、姫路臨海にLNG火力（姫路第一・第二。第一は5・6号機144万kWを廃止し65万kW級×3基＝195万kW級・発電効率63%に更新、2029年度着工・2033年度運転開始予定）。「電源に近い」素性は良い。ただし30〜100MW級のDCが繋ぐのは <strong>77kV または 154kV</strong> の変電所であり、その位置・空き容量・工事費負担金・供給時期が未確認。関電送配電は2026年6月に「供給可能エリアマップ」（数十〜数百MW向け）を、7月に154kV未満の空き容量一覧を更新しており、<strong>この2資料の机上確認が最初の一手</strong>。加えて関電は送電網増強に1,500億円超を投じる方針。播磨では出光等の姫路蓄電所（製油所跡地、2025年8月完工）、上組の加西特高蓄電所（PCS 13MW、2026年5月竣工）と特高連系の実例が出ており、系統協議の前例がある地域。契約電力2,000kW未満なら高圧（6.6kV）で足り、引込は数か月単位。</td>
 </tr>
 <tr>
 <td><strong>通信</strong></td>
@@ -356,7 +361,7 @@ code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.9em;bac
 <tr>
 <td><strong>水・冷却</strong></td>
 <td>● 概ね良好</td>
-<td>上水道あり（全寮制高校規模）。空冷・フリークーリング前提なら支障なし。夢前川流域の取水・井水は水冷併用時の代替。</td>
+<td>上水道あり（全寮制高校規模）。夢前町前之庄は兵庫県水道用水供給事業（県水）の受水系統で、市水道が夢前町に到達している。空冷・フリークーリング前提なら支障なし。夢前川流域の取水・井水は水冷併用時の代替。</td>
 </tr>
 <tr>
 <td><strong>災害安全性</strong></td>
@@ -414,9 +419,59 @@ code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.9em;bac
 <ul>
 <li><strong>誰が買うか</strong>: 有力はパワードシェル／ホールセール事業者（電力確保を条件に土地＋シェルを開発してテナントに貸す層）と、AI学習・バッチ処理特化型（低遅延要件が緩く、電力単価・用地費・災害耐性で選ぶ層）。面積上はハイパースケール系の候補にも乗るが、単独立地で商圏が薄いため「電力と価格」で判断する層に絞られる。</li>
 <li><strong>競合</strong>: 2026〜30年の国内DC新設・増設38件のうち大阪圏9件・地方13件。地方分散は苫小牧・石狩・湯沢・男鹿など「電源立地」に向かっている。兵庫県内のDCは神戸（NEC、KCC）・三田（SCSK）が中心で、播磨北部に既存クラスタはない。</li>
-<li><strong>補助・優遇</strong>: 経産省は2026年度から再エネ・原子力電源型DCへの立地補助（最大50%）を用意。総務省のDC地方分散基金、兵庫県産業立地条例（設備投資補助3〜10%・上限100億円、投資20億円以上）、姫路市企業立地促進制度（固定資産税・事業所税相当の奨励金。2025年10月に成長産業向けを拡充）が重なる。ただし兵庫県のGX戦略地域は「コンビナート等再生型」であり、DC集積型で選ばれた9道県（北海道・秋田・宮城・栃木・茨城・富山・香川・福岡・鹿児島）には入っていない。</li>
+<li><strong>補助・優遇</strong>: 経産省は2026年度から再エネ・原子力電源型DCへの立地補助（最大50%）を用意。総務省のDC地方分散基金（第3回公募 2025年6〜7月。DC設置・サーバ設置・IX設置が対象）、経産省のDC地方拠点整備補助（2023年度はソフトバンク苫小牧のみ採択）、兵庫県産業立地条例（設備投資補助3〜10%・上限100億円、投資20億円以上。成長産業5分野＝新エネ・環境、航空、ロボット、健康医療、半導体で厚く、DCは明記なし。拡充対象の「促進地域」はベイエリア等で夢前は対象外の見込み）、姫路市企業立地促進制度（固定資産税・事業所税相当の奨励金。2025年10月に成長産業・大規模雇用・本社機能向けを拡充）が重なる。ただし兵庫県のGX戦略地域は「コンビナート等再生型」であり、DC集積型で選ばれた9道県（北海道・秋田・宮城・栃木・茨城・富山・香川・福岡・鹿児島）には入っていない。</li>
 <li><strong>行政の主導は未確認</strong>: 甲賀市が19haでDC市場調査を実施していた土山と違い、姫路市がDC誘致を能動的に進めている情報は見当たらない。市の企業誘致部門へのヒアリングで温度感を確認。</li>
+<li><strong>関西の買い手候補</strong>: 関西電力サイラスワン（10年で1兆円超・総受電900MWのハイパースケール事業。OSK1は48MW・2028年第1四半期に第1期16MW）、ESR-STACK けいはんな（最大72MW、2027年）、NTTデータ京阪奈（30MW、2026年）、KDDI大阪堺（旧シャープ堺工場、土地建物100億円）。関電グループのオプテージは福井県美浜町に原子力由来電力のコンテナ型GPU DCを2026年度に開設予定で、<strong>「電源に近い郊外にGPU拠点、大阪に接続拠点」という組み合わせを関電自身が実践している</strong>。本敷地はこの型の「播磨側の郊外GPU拠点」として提案できる。</li>
 </ul>
+<h3>4.5 段階的シナリオ: 既存校舎GPU DC（Phase 0）→ 特高DC（Phase 1）</h3>
+<p>廃校をそのままGPU DCにする実例が2025〜26年に相次いだ。ハイレゾ（GPUクラウド「GPUSOROBAN」）は佐賀県玄海町の旧有徳小学校（2025年8月開所、A4000搭載サーバー120台、校舎2階の教室を改装、町から校舎を無償借用）、香川県綾川町の旧綾上中学校体育館（2026年3月開所、B200採用予定）、石川県志賀町（北陸電力の安価な電力とRE100メニュー）で運営し、中国電力ネットワークとも2025年にGPU DCの業務提携を結んだ。共通するのは <strong>「安い電力・冷涼・地震が少ない・既存建物」</strong> の4点で、本敷地は「既存建物」を最も大きく持つ。</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>Phase 0: 既存校舎GPU DC</th>
+<th>Phase 1: 特高DC（本命）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>受電</td>
+<td>高圧 6.6kV・契約電力2,000kW未満（既存の受変電設備を更新）</td>
+<td>特高 77/154kV・30〜100MW</td>
+</tr>
+<tr>
+<td>電力の手続き</td>
+<td>供給申込から数か月</td>
+<td>事前相談→接続検討→負担金契約→系統工事で2〜5年</td>
+</tr>
+<tr>
+<td>許認可</td>
+<td>用途変更（建築確認）と消防協議のみ。開発許可・林地開発・解体なし</td>
+<td>開発許可（1ha以上）。平場内なら林地開発なし</td>
+</tr>
+<tr>
+<td>使う建物</td>
+<td>体育館（4,334㎡・大空間・高天井）、校舎、寮（電源・給排水あり）</td>
+<td>新築</td>
+</tr>
+<tr>
+<td>投資</td>
+<td>運営事業者が内装・電気・冷却を負担（貸主は受変電更新・防水で1億円程度）</td>
+<td>20〜100MW × 20億円/MW</td>
+</tr>
+<tr>
+<td>貸主の収入</td>
+<td>年 0.3〜0.8億円（ハイレゾは自治体から無償借用しており賃料負担力は低い）</td>
+<td>年 43〜216億円（DC事業者側の収入）</td>
+</tr>
+<tr>
+<td>意味</td>
+<td>土地を稼働させ、固都税・管理費を賄い、DC運営実績と系統協議の足場を作る</td>
+<td>本件の価値の源泉</td>
+</tr>
+</tbody>
+</table></div>
+<p>Phase 0だけなら土地建物の価格は4〜5億円程度（§6）で、16.5億円を正当化しない。Phase 0の価値は、<strong>特高の回答を待つ3〜5年を「空き地の保有」ではなく「稼働するDC」として過ごせる</strong> ことにある。運営事業者にとっても、将来の特高DCの優先交渉権とセットなら、校舎の賃料を払う理由が生まれる。</p>
 <hr />
 <h2>5. 収支（DC事業者の目線・ホールセール型）</h2>
 <p>共通前提: 土地16.5億円、仲介3%＋税、登録免許税・不動産取得税（評価 土地3.4億・建物1.0億）、固都税 616万円/年（都市計画税なし）、解体7.3億円、DC建屋・設備 <strong>20億円/MW</strong>（東京はUSD15.2/W≒23億円/MW。地方・低層で割引）、造成5億円、系統接続・負担金20億円、通信3億円、設計監理4%、予備費5%、受電待ち3年＋工期30か月、金利2%＋手数料0.5%、賃料 <strong>2.0万円/kW/月</strong>（電気代は実費転嫁。東京ホールセール2.5〜3.0万円の想定に対し地方は1.5〜2.2万円。要裏取り）、稼働90%、運営費20%、建物・償却資産税 capex比0.6%、キャップレート <strong>5.0%</strong>（東京DC 4.3〜4.5%に地方プレミアム）、開発利益15%。</p>
@@ -604,6 +659,7 @@ code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.9em;bac
 </tbody>
 </table></div>
 <p>→ 賃料が1.5万円まで下がるか、capexが24億円/MWまで上がると利益が消える。<strong>DC事業のリスクは土地ではなく「賃料×建設費×出口利回り」にある。</strong></p>
+<p><strong>賃料の裏付け</strong>: Cushman &amp; Wakefield「アジア太平洋DC建設コストガイド2025」は収支の前提として、コロケーション賃料を東京・シドニー・シンガポール等で120ドル/kW/月、<strong>その他の都市で100ドル/kW/月</strong> と置く（1ドル150円で1.8万円／1.5万円）。CBREの2026年第1四半期調査では東京の募集賃料（250〜500kW規模の小口）が平均280ドル/kW/月。播磨北部の単独立地に大口ホールセールで付く賃料は、Cushmanの「その他」水準＝<strong>1.5万円前後</strong> と見るのが保守的で、この場合の開発利益率は▲0%（capex 20億円/MW）〜26%（16億円/MW）。<strong>標準的なホールセール賃料では本件は薄く、AI・GPU用途（電力単価と冷涼な気候で選ぶ層）のプレミアム賃料か、ハイパースケーラーのビルド・トゥ・スーツ（賃料ではなく長期契約で成立）を取れるかが分かれ目</strong>になる。</p>
 <h3>5.3 残余法: DC事業が土地に払える理論上限（開発利益15%控除後）</h3>
 <div class="tbl"><table>
 <thead>
@@ -646,7 +702,7 @@ code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.9em;bac
 </tr>
 </tbody>
 </table></div>
-<p>→ 電力とテナントが確保できる前提なら、DC事業者は理論上16.5億円の数倍を払える。<strong>「DC-ready」（受電容量と許認可の目処が付いた状態）の土地としての実勢は、有効面積ベースで2〜5万円/㎡（平場11haで22〜55億円）が国内地方案件の目安</strong>であり、受電確認を経た転売・共同事業の出口はこの水準を想定する。ただしこれは3〜5年の時間と、電力回答が黒で終わるリスクを負った先の話である。</p>
+<p>→ 電力とテナントが確保できる前提なら、DC事業者は理論上16.5億円の数倍を払える。<strong>「DC-ready」（受電容量と許認可の目処が付いた状態）の土地としての実勢は、有効面積ベースで2〜5万円/㎡（平場11haで22〜55億円）が国内地方案件の目安</strong>であり、受電確認を経た転売・共同事業の出口はこの水準を想定する（参考: DC集積地の石狩市は2025年の地価平均28,183円/㎡で、NTT MEが2025年に約5万㎡を取得。ソフトバンク苫小牧は70万㎡・300MW超）。ただしこれは3〜5年の時間と、電力回答が黒で終わるリスクを負った先の話である。</p>
 <hr />
 <h2>6. DC以外の出口から見た土地の実力値</h2>
 <div class="tbl"><table>
@@ -659,6 +715,12 @@ code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.9em;bac
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>既存校舎GPU DC（ハイレゾ型・高圧2,000kW未満・運営事業者が改修）</td>
+<td><strong>4.5億円</strong></td>
+<td>0.4億円</td>
+<td>賃料5,000万円/年・cap8%・貸主修繕1億円。解体・開発許可不要。特高DCのPhase 0（§4.5）</td>
+</tr>
 <tr>
 <td>現況一括賃貸（企業研修所・スポーツ合宿・通信制高校スクーリング拠点・技能実習研修寮）</td>
 <td><strong>2.8億円</strong></td>
@@ -691,7 +753,7 @@ code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.9em;bac
 </tr>
 </tbody>
 </table></div>
-<p>→ <strong>DCが成立しなければ、この土地の実力は1〜3億円。</strong> 16.5億円はDC（または特高接続を前提とする電力多消費用途）が成立する場合にだけ正当化される。解体費7.3億円が全ての非DC出口の足を引っ張っており、逆に「建物を壊さず使う」現況賃貸が非DCでは最善になる。</p>
+<p>→ <strong>特高DCが成立しなければ、この土地の実力は1〜5億円。</strong> 16.5億円は特高接続を前提とするDC（または同じ電力論点を持つ電力多消費用途）が成立する場合にだけ正当化される。解体費7.3億円が全ての「壊す」出口を潰しており、逆に「建物を壊さず使う」校舎GPU DC・現況賃貸が非特高では最善になる。参考として、公有廃校の売却は長野県中野市の旧科野小学校（土地30,025㎡・校舎・体育館・グラウンド）で最低売却価格985万円＝約330円/㎡、旧豊井小学校の校舎は0円と、廃校の市場価格は数百円/㎡台。本件の4,912円/㎡（平場換算14,923円/㎡）は「学校跡地」ではなく「DC用地」の値付けである。</p>
 <hr />
 <h2>7. 保有コストと時間リスク</h2>
 <p>16.5億円で取得し、受電・許認可の一次回答を待つ場合（金利2%・固都税616万円・管理費500万円/年）:</p>
@@ -735,7 +797,8 @@ code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.9em;bac
 <li><strong>買い手（パワードシェル／AI特化型／通信系）は#2の一次回答と並走で打診し、数字が出た段階で本格提案に進む。</strong> 弊社の立ち位置は（a）客付共同仲介、（b）DC事業者と組んだ取得・転売、（c）オプション権の譲渡の3通りがあり、一次回答の中身で選ぶ。</li>
 <li><strong>価格</strong>: DC成立が確認できれば16.5億円は総事業費の1〜3%で、値引き交渉より「引渡し条件（解体の負担、境界、残置物、地中障害）」の整理を優先する。DC不成立の現物取得なら <strong>5〜8億円</strong> が上限（非DC出口2〜3億円＋電力オプション価値）。</li>
 <li><strong>解体費7.3億円の扱い</strong>: 売主負担での解体（更地渡し）か、解体費相当の値引きかを条件化する。アスベスト調査結果次第で上振れするため、調査は契約前に実施。</li>
-<li><strong>代替案</strong>: 短期の出口は現況一括賃貸（研修・合宿・学校用途）。蓄電池・太陽光は電力論点が同じなので、DCの受電照会と同時に検討できる。</li>
+<li><strong>Phase 0を並走させる</strong>: 既存校舎（体育館4,334㎡・校舎・寮）を高圧受電のままGPU DCに転用する案を、ハイレゾ・オプテージ（関電グループ、美浜町でコンテナ型GPU DC）・さくらインターネット等のGPU事業者に打診する。特高DCの優先交渉権とセットで提示すれば、校舎賃料（年0.3〜0.8億円）を引き出す余地がある。受電の一次回答を待つ3〜5年の保有コスト（年0.4億円）を賄い、DC運営実績と系統協議の足場になる。</li>
+<li><strong>代替案</strong>: 短期の出口は現況一括賃貸（研修・合宿・学校用途）。蓄電池（播磨では姫路蓄電所・加西特高蓄電所の実例あり）・太陽光は電力論点が同じなので、DCの受電照会と同時に検討できる。</li>
 </ol>
 <hr />
 <h2>9. リスク（重大度順）</h2>
@@ -775,9 +838,9 @@ code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.9em;bac
 </tr>
 <tr>
 <td>5</td>
-<td>市場性・出口</td>
-<td>中</td>
-<td>単独立地・商圏なし。買い手はパワードシェル／AI特化に限られ、DC不成立時の出口価値は1〜3億円。→ 停止条件付きで時間リスクを売主と分担</td>
+<td>市場性・賃料・出口</td>
+<td>中〜高</td>
+<td>単独立地・商圏なし。買い手はパワードシェル／AI特化に限られ、地方のホールセール賃料（Cushman想定100ドル≒1.5万円/kW/月）では損益分岐（約1.7万円）を下回る。DC不成立時の出口価値は1〜5億円。→ AI・GPU用途かビルド・トゥ・スーツに絞る。停止条件付きで時間リスクを売主と分担</td>
 </tr>
 <tr>
 <td>6</td>
@@ -874,13 +937,19 @@ code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.9em;bac
 </tr>
 <tr>
 <td>10</td>
-<td>ターゲット事業者（パワードシェル／AI特化型／通信系）への初期打診 — #3の一次回答取得後</td>
+<td>Phase 0（既存校舎GPU DC）の打診: ハイレゾ、オプテージ、さくらインターネット等へ、体育館・校舎の図面と既存受電設備の情報を添えて。特高の優先交渉権とセットで提示</td>
+<td>弊社</td>
+<td>中</td>
+</tr>
+<tr>
+<td>11</td>
+<td>ターゲット事業者（パワードシェル／AI特化型／通信系／関電サイラスワン等のハイパースケール系）への本格打診 — #3の一次回答取得後</td>
 <td>弊社／買主</td>
 <td>後続</td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>進め方の要諦</strong>: 受電容量の一次回答（#3）が出る前に買い手打診（#10）を先行させると、「何MW取れるのか」に答えられず商談が止まる。#1〜#5を並行で走らせ、数字が揃った段階で事業者打診に進む二段構え。</p>
+<p><strong>進め方の要諦</strong>: 受電容量の一次回答（#3）が出る前に特高DCの買い手打診（#11）を先行させると、「何MW取れるのか」に答えられず商談が止まる。#1〜#5を並行で走らせ、数字が揃った段階で事業者打診に進む二段構え。Phase 0（#10）は高圧受電の範囲で完結するため、#3の回答を待たずに動かせる。</p>
 <hr />
 <h2>11. 前提の根拠（出典）</h2>
 <ul>
@@ -894,7 +963,14 @@ code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.9em;bac
 <li>地価: <a href="https://tochidai.info/area/yumesakicho/">tochidai.info 夢前町（2025年 基準地価平均 20,900円/㎡）</a></li>
 <li>補助・行政: <a href="https://www.city.himeji.lg.jp/sangyo/0000031184.html">姫路市 企業立地促進制度</a>、<a href="http://web.pref.hyogo.lg.jp/sr03/sr03_000000002.html">兵庫県 産業立地条例に基づく立地支援</a>、<a href="https://web.pref.hyogo.lg.jp/sr07/press/20260424.html">兵庫県 GX戦略地域（コンビナート等再生型）有望地域に選定</a>、<a href="https://www.meti.go.jp/press/2026/04/20260424007/20260424007.html">経産省 GX戦略地域 有望地域の選定</a>、<a href="https://www.nikkei.com/article/DGXZQOUA236I60T21C25A2000000/">日経 再エネ・DC集積支援（最大50%補助）</a>、<a href="https://www.soumu.go.jp/menu_news/s-news/01kiban04_02000267.html">総務省 DC等の地方分散によるデジタルインフラ強靭化事業</a></li>
 <li>DC市場・コスト: <a href="https://www.nikkeibp.co.jp/atcl/newsrelease/corp/20260619/">日経クロステック 2026年以降のDC新設・増設 24社38件</a>、<a href="https://www.nikkei.com/article/DGXZQOUC253MX0V21C25A1000000/">日経 DC建設費 東京が世界一（USD15.2/W）</a>、<a href="https://reports.turnerandtownsend.com/data-centre-construction-cost-index-2025-japanese/data-centre-cost-trends">Turner &amp; Townsend DC建設コスト指数 2025</a>、<a href="https://www.cushmanwakefield.com/ja-jp/japan/insights/apac-data-centre-construction-cost-guide">Cushman &amp; Wakefield APAC DC建設コストガイド 2026</a></li>
+<li>姫路第一発電所更新: <a href="https://www.meti.go.jp/policy/safety_security/industrial_safety/sangyo/electric/detail/himejidaiichi.html">経産省 姫路第一発電所更新計画（環境影響評価）</a>、<a href="https://www.env.go.jp/press/press_04417.html">環境省 計画段階環境配慮書への環境大臣意見</a>、<a href="https://enehub.jp/news/%E9%96%A2%E9%9B%BB_%E5%A7%AB%E8%B7%AF%E7%AC%AC%E4%B8%80%E7%99%BA%E9%9B%BB%E6%89%80%E3%81%AEeia%E6%96%B9%E6%B3%95%E6%9B%B8%E3%82%92%E5%85%AC%E8%A1%A8/">エネハブ 姫路第一 1.95GW 方法書公表・2033年度運転開始</a></li>
+<li>廃校GPU DC・関西の事業者: <a href="https://highreso.jp/press/40442/">ハイレゾ 綾川町データセンター開所（2026-03）</a>、<a href="https://prtimes.jp/main/html/rd/p/000000083.000058027.html">ハイレゾ 玄海町データセンター開設（2025-08）</a>、<a href="https://news.mynavi.jp/article/20250910-3429025/">マイナビ 玄海町DC開所式レポート</a>、<a href="https://www.energia.co.jp/nw/press/2025/16219.html">中国電力ネットワーク ハイレゾとの業務提携</a>、<a href="https://optage.co.jp/press/2025/press_7.html">オプテージ 美浜町 コンテナ型GPU DC</a>、<a href="https://cafe-dc.com/japan/cyrusone-enters-japan-with-7bn-kepco-partnership-plans-900mw-portfolio/">Data Center Café CyrusOne×関西電力 900MW</a>、<a href="https://cafe-dc.com/special/foreign-owned-data-centers-expanding-into-japan-2024-2025/">Data Center Café 外資系DC進出まとめ 2024〜25</a></li>
+<li>賃料・利回り: <a href="https://www.cushmanwakefield.com/en/singapore/news/2025/01/cushman-and-wakefield-report-release-apac-data-centre-construction-cost-guide-2025">Cushman &amp; Wakefield APAC DC建設コストガイド2025（コロケーション賃料 120／100ドル/kW/月の前提）</a>、<a href="https://www.cbre.com/insights/reports/global-data-center-trends-2026">CBRE Global Data Center Trends 2026（東京 募集賃料 280ドル/kW/月）</a>、<a href="https://www.reinet.or.jp/?p=38949">日本不動産研究所 第54回 不動産投資家調査（2026年4月）</a> ※DCの期待利回りは本文未確認</li>
+<li>蓄電池・系統: <a href="https://www.jgc.com/jp/news/2025/20251110_11.html">日揮 姫路蓄電所 完工（2025-11）</a>、<a href="https://www.kobe-np.co.jp/info/prtimes/202605/c109041_r246.shtml">加西市 特高蓄電所 竣工（2026-05）</a>、<a href="https://www.meti.go.jp/shingikai/enecho/denryoku_gas/saisei_kano/smart_power_grid_wg/pdf/007_01_01.pdf">エネ庁 系統用蓄電池等の迅速な系統連系（2026-02）</a></li>
+<li>廃校・DC用地の価格参考: <a href="https://reseed.resemom.jp/article/2022/02/09/3316.html">中野市 閉校小学校の売却（旧科野小 30,025㎡ 最低価格985万円）</a>、<a href="https://www.city.ishikari.hokkaido.jp/sangyo/yuchi/1006873.html">石狩市 NTT ME 用地取得</a>、<a href="https://tochidai.info/hokkaido/ishikari/">tochidai.info 石狩市 地価</a>、<a href="https://www.pref.hokkaido.lg.jp/kz/ssg/sgr/dc_guide.html">北海道 DC立地環境</a></li>
+<li>補助制度の採択: <a href="https://www.meti.go.jp/information/publicoffer/saitaku/2023/s231107001.html">経産省 令和5年度 DC地方拠点整備事業費補助金 採択結果（ソフトバンク苫小牧）</a>、<a href="https://www.soumu.go.jp/menu_seisaku/ictseisaku/digital_infrastructure/index.html">総務省 DC等の地方分散事業 公募ページ</a>、<a href="https://dl.ndl.go.jp/view/prepareDownload?itemId=info%3Andljp%2Fpid%2F14632278">国会図書館 ISSUE BRIEF No.1343 データセンターをめぐる動向（2026-02）</a></li>
+<li>高圧・特高の境界: <a href="https://simulator.eic-jp.org/datacenter-electricity-contract-guide">データセンターの電力契約（特別高圧の選び方）</a></li>
 <li>弊社内部資料（Google Drive）: 「土山町山中 データセンター適地調査」（2026-08-19）、「全国データセンター誘致案件 自治体公募3件比較」（2026-08-24。PDG TY1の原単位 約16億円/MW・29MW/ha）、「エッジDCの距離基準 一次情報まとめ」（2026-08-23。10km圏100万人基準）、「八尾市 DC用地スクリーニング」（2026-08-19）、国交省 国住指第4933号（コンテナ型DCの建基法上の取扱い）</li>
 </ul>
-<p>※ 本レポートは公開情報・売主提示資料・弊社の過去調査に基づく机上検討であり、現地調査・行政協議・電力会社への照会は未実施。賃料・capex・キャップレートは弊社の想定値で、DC事業者・建設会社・鑑定の裏付けが必要。計算モデルは <code>model/himeji_dc.py</code>、数式入りの試算表は <code>output/姫路夢前町_日生学園跡地_収支試算.xlsx</code>。</p>
+<p>※ 本レポートは公開情報・売主提示資料・弊社の過去調査に基づく机上検討であり、現地調査・行政協議・電力会社への照会は未実施。関電送配電・姫路市・兵庫県・日本不動産研究所・OCCTO・地理院のサイトは本作業環境から直接取得できず、検索結果の要約で確認した（本文の数値確認が必要）。10km・30km圏の人口集計（OSM人口データ）と標高・ハザードの機械判定も同じ理由で未実施。賃料・capex・キャップレートは弊社の想定値で、DC事業者・建設会社・鑑定の裏付けが必要。計算モデルは <code>model/himeji_dc.py</code>、数式入りの試算表は <code>output/姫路夢前町_日生学園跡地_収支試算.xlsx</code>。</p>
 </div></body></html>

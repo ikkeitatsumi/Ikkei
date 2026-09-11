@@ -230,6 +230,12 @@ class AltAssume:
     asis_rent_year: float = 0.40 * OKU     # 寮90室・食堂・体育館・グラウンド一式。5年空き家の修繕は借主負担想定
     asis_repair: float = 2.0 * OKU         # 貸出前の最低限修繕（受変電・給排水・屋上防水）
     asis_cap: float = 0.07
+    # 既存校舎をGPUデータセンターに転用（ハイレゾ型: 玄海町・綾川町・志賀町の廃校DC）
+    # 高圧受電2,000kW未満で、開発許可・解体を伴わない。運営事業者が内装・電気・冷却を自己負担。
+    # ハイレゾは自治体から校舎を無償で借りており、賃料負担力は低い前提。
+    gpu_school_rent_year: float = 0.50 * OKU
+    gpu_school_repair: float = 1.0 * OKU   # 貸主側: 受変電更新・屋上防水・外構
+    gpu_school_cap: float = 0.08           # 単一テナント・事業者リスク
     # 太陽光（屋外運動場4.2haのみ。建物敷地は解体費が地代を上回り、山林は林地開発0.5ha超で許可対象）
     solar_land_rent_m2: float = 200        # 円/㎡/年（地上設置の地代相場 150〜300円）
     solar_usable_rate: float = 0.85
@@ -254,6 +260,10 @@ def alt_uses(site: Site, cc: CommonCost, a: AltAssume) -> dict:
     noi = a.asis_rent_year - cc.property_tax_year()
     v = noi / a.asis_cap - a.asis_repair
     out["現況一括賃貸（研修・合宿・学校用途）"] = {"年間NOI": noi, "土地建物の収益価格": v, "備考": "開発許可不要。借主確保が前提"}
+    # 既存校舎GPU DC（ハイレゾ型）
+    noi = a.gpu_school_rent_year - cc.property_tax_year()
+    v = noi / a.gpu_school_cap - a.gpu_school_repair
+    out["既存校舎GPU DC（ハイレゾ型・高圧2MW未満・借主改修）"] = {"年間NOI": noi, "土地建物の収益価格": v, "備考": "解体・開発許可不要。特高DCのPhase 0にもなる。運営事業者の賃料負担力が低い点が制約"}
     # 太陽光（運動場のみ。建物はそのまま）
     rent = site.ground_m2 * a.solar_usable_rate * a.solar_land_rent_m2
     noi = rent - cc.property_tax_year()
