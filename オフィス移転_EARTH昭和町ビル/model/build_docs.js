@@ -23,8 +23,7 @@ const P = (text, opts = {}) => {
   st.push(`margin:${tw(opts.before ?? 0)} 0 ${tw(opts.after ?? 100)} 0`);
   st.push(`line-height:${((opts.line ?? 320) / 240).toFixed(2)}`);
   st.push(`font-size:${(opts.size || SZ) / 2}pt`);
-  if (opts.bold) st.push("font-weight:bold");
-  if (opts.gothic) st.push("font-family:'IPAGothic','IPAPGothic',sans-serif");
+  if (opts.gothic || opts.bold) st.push("font-family:'IPAGothicS','IPAGothic',sans-serif");
   if (opts.indent) {
     const ind = opts.indent;
     if (ind.left) st.push(`padding-left:${tw(ind.left)}`);
@@ -66,7 +65,7 @@ function Tbl(headers, rows, widths, opts = {}) {
   const fs = (opts.size || 20) / 2;
   let h = `<table style="border-collapse:collapse;width:${(total / 9060 * 100).toFixed(1)}%;table-layout:fixed;font-size:${fs}pt;line-height:1.17;margin:0 0 5pt 0"><colgroup>`;
   h += widths.map(w => `<col style="width:${(w / total * 100).toFixed(2)}%">`).join("") + "</colgroup>";
-  if (headers) h += "<tr>" + headers.map(x => `<th style="border:0.5pt solid #000;background:#e7e6e6;padding:3pt 5pt;text-align:center;font-weight:bold">${esc(x)}</th>`).join("") + "</tr>";
+  if (headers) h += "<tr>" + headers.map(x => `<th style="border:0.5pt solid #000;background:#e7e6e6;padding:3pt 5pt;text-align:center;font-family:'IPAGothicS','IPAGothic',sans-serif">${esc(x)}</th>`).join("") + "</tr>";
   for (const r of rows) h += "<tr>" + r.map((c, i) => `<td style="border:0.5pt solid #000;padding:3pt 5pt;text-align:${alignCss(opts.aligns ? opts.aligns[i] : null)};vertical-align:top">${c === "" ? "&nbsp;" : esc(c)}</td>`).join("") + "</tr>";
   h += "</table>";
   htmlBuf.push(h);
@@ -107,7 +106,7 @@ async function save(doc, name) {
   const base = name.replace(/\.docx$/, "");
   const html = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>${esc(base)}</title><style>
 @page{size:A4;margin:25mm}
-body{font-family:'IPAMincho','IPAPMincho','ＭＳ 明朝',serif;font-size:10.5pt;color:#000;margin:0}
+body{font-family:'IPAMinchoS','IPAMincho',serif;font-size:10.5pt;color:#000;margin:0}
 p{word-break:break-all;overflow-wrap:anywhere}
 table{page-break-inside:auto} tr{page-break-inside:avoid}
 </style></head><body>${doc.__html}</body></html>`;
@@ -216,10 +215,10 @@ const d1 = makeDoc([
   Body("以上、本合意解約書の成立を証するため、本書4通を作成し、各当事者が記名押印のうえ各1通を保有する。"),
   Blank(),
   P("　　　　年　　月　　日", { indent: { left: 420 } }),
-  ...Sig("甲（名義人）", [`商　号　${GOLDER}`, `所在地　${GOLDER_ADDR}`, `代表者　${REP}　　　　　　　　　㊞`]),
-  ...Sig("乙", ["商　号　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿", "所在地　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿", "代表者　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿　　　㊞"]),
-  ...Sig("丙", ["商　号　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿", "所在地　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿", "代表者　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿　　　㊞"]),
-  ...Sig("丁（補填参加者）", ["商　号　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿", "所在地　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿", "代表者　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿　　　㊞"]),
+  ...Sig("甲（名義人）", [`商　号　${GOLDER}`, `所在地　${GOLDER_ADDR}`, `代表者　${REP}　　　　　　　　　印`]),
+  ...Sig("乙", ["商　号　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿", "所在地　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿", "代表者　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿　　　印"]),
+  ...Sig("丙", ["商　号　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿", "所在地　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿", "代表者　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿　　　印"]),
+  ...Sig("丁（補填参加者）", ["商　号　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿", "所在地　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿", "代表者　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿　　　印"]),
 
   Break(),
   Title("別紙　退去に係る主要期日"),
@@ -246,7 +245,7 @@ function noticeDoc() {
     Blank(),
     Right(GOLDER),
     Right(GOLDER_ADDR),
-    Right(`${REP}　　㊞`),
+    Right(`${REP}　　印`),
     Right("TEL 06-7632-5284"),
     Blank(),
     Title("事務所共同利用の終了及び退去のお願い（退去通知書）"),
@@ -364,9 +363,9 @@ const d3 = makeDoc([
   Blank(),
   P("上記の精算内容及び確認事項について相違ないことを確認しました。", { before: 200 }),
   Blank(),
-  P(`甲　${GOLDER}　　${REP}　　　　　　　　㊞`),
+  P(`甲　${GOLDER}　　${REP}　　　　　　　　印`),
   Blank(),
-  P("当事者　＿＿＿＿＿＿＿＿＿＿＿＿＿　　代表取締役　＿＿＿＿＿＿＿＿＿　㊞"),
+  P("当事者　＿＿＿＿＿＿＿＿＿＿＿＿＿　　代表取締役　＿＿＿＿＿＿＿＿＿　印"),
 ]);
 
 // =====================================================================
@@ -406,7 +405,7 @@ function minutes(company, counter, isGolder) {
     Blank(),
     P("2026年　　月　　日"),
     P(`${company}　臨時株主総会`, { indent: { left: 420 } }),
-    P("議長・議事録作成者　代表取締役　辰己 逸奎　　　　　　　㊞", { indent: { left: 420 } }),
+    P("議長・議事録作成者　代表取締役　辰己 逸奎　　　　　　　印", { indent: { left: 420 } }),
     Blank(),
     P("別紙：事務所共同利用に関する同意書の合意解約書（案）", { size: 20 }),
   ];
@@ -484,9 +483,9 @@ const d5 = makeDoc([
   Body("本確認書の成立を証するため、本書3通を作成し、甲乙及び会社が署名又は記名押印のうえ各1通を保有する。"),
   Blank(),
   P("　　　　年　　月　　日", { indent: { left: 420 } }),
-  ...Sig("甲（実質的所有者）", ["氏　名　髙比 康充　　　　　　　　　　　　　　　　㊞", "住　所　大阪府大阪市北区鶴野町3番9号 3707号室"]),
-  ...Sig("乙（名義人）", ["氏　名　辰己 逸奎　　　　　　　　　　　　　　　　㊞", "住　所　【　　　　　　　　　　　　　　　　　　　】"]),
-  ...Sig("会社", ["商　号　株式会社Monde", "所在地　【　　　　　　　　　　　　　　　　　　　】", "代表者　代表取締役 辰己 逸奎　　　　　　　　　㊞"]),
+  ...Sig("甲（実質的所有者）", ["氏　名　髙比 康充　　　　　　　　　　　　　　　　印", "住　所　大阪府大阪市北区鶴野町3番9号 3707号室"]),
+  ...Sig("乙（名義人）", ["氏　名　辰己 逸奎　　　　　　　　　　　　　　　　印", "住　所　【　　　　　　　　　　　　　　　　　　　】"]),
+  ...Sig("会社", ["商　号　株式会社Monde", "所在地　【　　　　　　　　　　　　　　　　　　　】", "代表者　代表取締役 辰己 逸奎　　　　　　　　　印"]),
 
   Break(),
   Title("別紙　本件株式の表示"),
@@ -569,9 +568,9 @@ const d6 = makeDoc([
   Body("本覚書の成立を証するため、本書3通を作成し、甲乙丙が記名押印のうえ各1通を保有する。"),
   Blank(),
   P("　　　　年　　月　　日", { indent: { left: 420 } }),
-  ...Sig("甲", [`商　号　${GOLDER}`, `所在地　${GOLDER_ADDR}`, `代表者　${REP}　　　　　　　　　㊞`]),
-  ...Sig("乙", ["氏　名　髙比 康充　　　　　　　　　　　　　　　　㊞", "住　所　大阪府大阪市北区鶴野町3番9号 3707号室"]),
-  ...Sig("丙", ["商　号　株式会社Monde", "所在地　【　　　　　　　　　　　　　　　　　　　】", "代表者　代表取締役 辰己 逸奎　　　　　　　　　㊞"]),
+  ...Sig("甲", [`商　号　${GOLDER}`, `所在地　${GOLDER_ADDR}`, `代表者　${REP}　　　　　　　　　印`]),
+  ...Sig("乙", ["氏　名　髙比 康充　　　　　　　　　　　　　　　　印", "住　所　大阪府大阪市北区鶴野町3番9号 3707号室"]),
+  ...Sig("丙", ["商　号　株式会社Monde", "所在地　【　　　　　　　　　　　　　　　　　　　】", "代表者　代表取締役 辰己 逸奎　　　　　　　　　印"]),
 
   Break(),
   Title("別紙　連帯保証人交代・退去に関する主要期日"),
