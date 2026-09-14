@@ -29,6 +29,6 @@ python3 model/build_xlsx.py      # output/ に xlsx を再生成
 | パス | 内容 |
 |---|---|
 | `オフィス移転_EARTH昭和町ビル/docs/契約レビュー_2階事業用賃貸借契約.md` | 2階事業用賃貸借契約書（ドラフト）のレビュー、1階契約との比較、確認・交渉事項 |
-| `オフィス移転_EARTH昭和町ビル/output/*.docx, *.pdf` | 1階共同利用3社向けの合意解約書・退去通知書・精算書、利益相反承認議事録、名義株確認書、連帯保証人交代の覚書 |
-| `オフィス移転_EARTH昭和町ビル/model/build_docs.js` | 上記docxの生成スクリプト（`npm install docx && node build_docs.js`） |
+| `オフィス移転_EARTH昭和町ビル/output/*.docx, *.pdf` | 01 合意解約書（Golder・壮大・セリーヌライフ・Monde）、02 退去通知書（3社宛）、03 退去精算書（3社分）、04 利益相反承認議事録（Golder/Monde）、05 名義株確認書、06 連帯保証人交代の覚書（Golder・髙比・セリーヌライフ）、07 2階の事務所共同利用同意書（Golder・壮大・セリーヌライフ）。`00_*.pdf` は全11書類のしおり付き結合版 |
+| `オフィス移転_EARTH昭和町ビル/model/build_docs.js` | 上記docx/PDFの生成スクリプト。`model/` で `npm install` 後、`output/` で `CHROMIUM="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" node ../model/build_docs.js`（PDF不要なら `NO_PDF=1`）。当事者名・金額は冒頭の定数で管理 |
 | `オフィス移転_EARTH昭和町ビル/source/` | 2階契約書ドラフト（PDF） |
